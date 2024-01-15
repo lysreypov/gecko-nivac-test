@@ -170,12 +170,12 @@ function showResultMobile(gameAns) {
   $(".group-drop-right").moveLeftRight("0", "100%").fadeOut(animationDuration);
   $("#main-container").css("overflow-y", "auto");
 
-  $("#main-container").addClass(`correct-ans-bg-${gameAns}`);
+  // $("#main-container").addClass(`correct-ans-bg-${gameAns}`);
 
-  // $(pageId).css(
-  //   "background-image",
-  //   `url("assets/images/pages/chapter-game/ysl-bottle-correct-bg-${gameAns}.jpg")`
-  // );
+  $(pageId).css(
+    "background-image",
+    `url("assets/images/pages/chapter-game/ysl-bottle-correct-bg-${gameAns}.jpg")`
+  );
   $(".group-correct-answer-" + gameAns).fadeIn(animationDuration);
 }
 

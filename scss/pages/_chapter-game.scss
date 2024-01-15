@@ -72,7 +72,7 @@
     @include vertical-center;
 
     .group-correct-answer {
-      position: fixed;
+      position: absolute;
       bottom: 0;
       &.hide {
         display: none;
@@ -279,7 +279,7 @@
     //   rgba(0, 0, 0, 0.9),
     //   rgba(0, 0, 0, 1)
     // );
-    background: blue;
+    background: black;
 
     p {
       font-family: $singulier-font;
