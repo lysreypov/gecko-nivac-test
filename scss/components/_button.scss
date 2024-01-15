@@ -1,0 +1,61 @@
+/*  ==================================================
+    button
+  
+     - basic html -
+    <button class="btn" type="button" lcz="text-button"></button>
+  
+    - common usage -
+    $(".btn").pulse();
+    $(".btn").pulseTwices();
+    $(".btn").on("click", function() {
+      console.log("click"); 
+    });
+
+================================================== */
+
+$btnWidthD: rem(450);
+$btnWidthM: rem(860);
+$btnHeightD: rem(70);
+$btnHeightM: rem(110);
+$pulseBackground: $black;
+
+.btn {
+  width: $btnWidthM;
+  max-width: $btnWidthM;
+  background-color: $pulseBackground;
+  margin: 0 auto;
+  border-radius: rem(10);
+  border: none;
+
+  cursor: pointer;
+  position: relative;
+  min-height: $btnHeightM;
+  height: $btnHeightM;
+  padding: rem(5) rem(25);
+  font-size: rem(48);
+  font-weight: $bold;
+  text-transform: uppercase;
+  font-family: $singulier-font;
+  font-weight: 300;
+  background-color: $white;
+  color: $black;
+
+  @include for-desktop {
+    font-size: rem(30);
+    width: $btnWidthD;
+    min-height: $btnHeightD;
+    height: $btnHeightD;
+  }
+
+  &:hover {
+    .btn__inner {
+      opacity: 0.85;
+    }
+  }
+
+  &.locked {
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "key": "page-title-1",
+    "data": {
+      "value": "myslf",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "page-title-2",
+    "data": {
+      "value": "The collection",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "description",
+    "data": {
+      "value": "Dare to master myslf",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "select-lang",
+    "data": {
+      "value": "Select your language",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

@@ -1,0 +1,74 @@
+$footerHeightM: rem(130);
+$footerHeightD: rem(60);
+
+#footer {
+  position: relative;
+  height: $footerHeightM;
+
+  @include for-desktop {
+    height: $footerHeightD;
+  }
+
+  &.absolute {
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+  }
+
+  .arrow-next {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    bottom: rem(-530);
+    right: 0;
+    width: rem(60);
+    height: rem(60);
+    background: rgba(250, 250, 250, 0.5);
+
+    .next-btn {
+      position: absolute;
+      bottom: rem(40);
+      right: rem(40);
+      width: rem(80);
+      height: rem(80);
+      padding: rem(20);
+      border: none;
+      cursor: pointer;
+
+      img {
+        @include fill-area;
+      }
+    }
+
+    @include for-desktop {
+      bottom: 0;
+    }
+  }
+
+  .tip-con {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    right: 0;
+    width: rem(60);
+    height: rem(60);
+    background: rgba(250, 250, 250, 0.5);
+
+    .tip-btn {
+      position: absolute;
+      bottom: rem(40);
+      right: rem(40);
+      width: rem(90);
+      height: rem(90);
+      border: none;
+      border-radius: 0;
+      font-size: rem(60);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "key": "chapter-1",
+    "data": {
+      "value": "M",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "chapter-2",
+    "data": {
+      "value": "Y",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "chapter-3",
+    "data": {
+      "value": "S",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "chapter-4",
+    "data": {
+      "value": "L",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "chapter-5",
+    "data": {
+      "value": "F",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-question-5",
+    "data": {
+      "value": "Which fragrance has the woody floral signature twisted with a velvet touch?",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-question-6",
+    "data": {
+      "value": "Your client prefers fresher scents rather than intense ones. Which MYSLF fragrance would you suggest him​ to try?",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-ans-debrief-5",
+    "data": {
+      "value": "MYSLF LE PARFUM is an intense woody floral scent, born from the unexpected encounter of florality and velvety woods, for a new sensual ambery trail.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-ans-debrief-6",
+    "data": {
+      "value": "MYSLF EAU DE PARFUM features soft white petals bolstered by a fresh, vibrant opening and sensual textured woods.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-left-ans",
+    "data": {
+      "value": "MYSLF <br> EAU DE PARFUM",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-right-ans",
+    "data": {
+      "value": "MYSLF <br> LE PARFUM",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

@@ -1,0 +1,100 @@
+#welcome-page {
+  height: 100%;
+  .welcome-page {
+    @include flex-column;
+    @include fill-area;
+    height: 100%;
+
+    @include for-desktop {
+      @include flex-row;
+      background: none;
+    }
+  }
+
+  .content {
+    @include fill-area;
+    @include flex-column;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: rem(0) rem(70) rem(0) rem(70);
+
+    .info {
+      @include vertical-center;
+      margin-top: rem(120);
+
+      .title {
+        h1 {
+          font-family: $singulier-font;
+          font-size: rem(60);
+          font-weight: $normal;
+          line-height: rem(150);
+          text-transform: uppercase;
+        }
+      }
+      .text-desc {
+        padding: rem(35);
+        @include vertical-center;
+
+        p {
+          font-family: $singulier-font;
+          font-size: rem(45);
+          font-weight: $light;
+          line-height: rem(60);
+          text-align: center;
+        }
+
+        .quest-box {
+          width: rem(90);
+          height: rem(90);
+          margin-top: rem(40);
+          background-color: $white;
+          @include flex-column;
+          @include vertical-center;
+
+          span {
+            font-family: $singulier-font;
+            font-weight: $normal;
+            font-size: rem(70);
+            color: $black;
+          }
+        }
+
+        .text-desc-3 {
+          margin: rem(10) rem(40) rem(40) rem(40);
+        }
+      }
+
+      @include for-desktop {
+        width: rem(650);
+        .title {
+          h1 {
+            font-size: rem(60);
+            line-height: rem(50);
+            margin-bottom: rem(40);
+          }
+        }
+
+        .text-desc {
+          padding: rem(20);
+          p {
+            font-size: rem(28);
+            line-height: rem(35);
+          }
+          .quest-box {
+            width: rem(60);
+            height: rem(60);
+
+            span {
+              font-size: rem(45);
+            }
+          }
+        }
+
+        &-3 {
+          padding: rem(20) rem(0);
+        }
+      }
+    }
+  }
+}

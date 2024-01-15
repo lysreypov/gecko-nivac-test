@@ -1,0 +1,64 @@
+#main-container {
+  background-size: cover;
+  background-position: top;
+
+  &.welcome-page {
+    @include bg-cov-gradient(
+      "../../assets/images/pages/welcome-page/welcome-page-bg-mobile.jpg"
+    );
+
+    @include for-desktop {
+      @include bg-cov(
+        "../../assets/images/pages/welcome-page/welcome-page-bg-desktop.jpg"
+      );
+    }
+  }
+
+  &.result-page {
+    @include bg-cov-gradient(
+      "../../assets/images/pages/welcome-page/welcome-page-bg-mobile.jpg"
+    );
+
+    @include for-desktop {
+      @include bg-cov(
+        "../../assets/images/pages/welcome-page/welcome-page-bg-desktop.jpg"
+      );
+    }
+  }
+
+  &.chapter1-game {
+    @include bg-cov(
+      "../../assets/images/pages/chapter-game/game-bg-mobile.jpg"
+    );
+
+    @include for-desktop {
+      @include bg-cov(
+        "../../assets/images/pages/chapter-game/game-bg-desktop.jpg"
+      );
+    }
+  }
+
+  &.correct-ans-bg-1 {
+    @include bg-cov(
+      "../../assets/images/pages/chapter-game/ysl-bottle-correct-bg-1.jpg"
+    );
+
+    @include for-desktop {
+      @include bg-cov(
+        "../../assets/images/pages/chapter-game/game-bg-desktop.jpg"
+      );
+    }
+  }
+
+  &.correct-ans-bg-2 {
+    @include bg-cov(
+      "../../assets/images/pages/chapter-game/ysl-bottle-correct-bg-2.jpg"
+    );
+
+    @include for-desktop {
+      @include bg-cov(
+        "../../assets/images/pages/chapter-game/game-bg-desktop.jpg"
+      );
+    }
+  }
+}

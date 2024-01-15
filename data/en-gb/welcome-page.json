@@ -1,0 +1,34 @@
+[
+  {
+    "key": "page-title",
+    "data": {
+      "value": "Welcome",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc1",
+    "data": {
+      "value": "Select each <strong> MYSLF </strong> letter to discover questions and play with the franchise.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc2",
+    "data": {
+      "value": "For each question, drag & drop the YSL Cassandre onto the right MYSLF bottle.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc3",
+    "data": {
+      "value": "At any time, select this icon to remember what to do.",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

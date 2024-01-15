@@ -1,0 +1,58 @@
+[
+  {
+    "key": "text-chapter-1",
+    "data": {
+      "value": "M",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-chapter-2",
+    "data": {
+      "value": "Y",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-chapter-3",
+    "data": {
+      "value": "S",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-chapter-4",
+    "data": {
+      "value": "L",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-chapter-5",
+    "data": {
+      "value": "F",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game-rounds-text",
+    "data": {
+      "value": "/10",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "main-page-tip-text",
+    "data": {
+      "value": "Select the pulsing letter to discover the questions to answer.",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

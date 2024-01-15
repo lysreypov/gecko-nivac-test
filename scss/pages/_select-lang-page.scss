@@ -1,0 +1,116 @@
+#select-lang-page {
+  /* Hide the video controls */
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+  video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+  video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+  video::-webkit-media-controls-play-button {
+    display: none !important;
+  }
+  height: 100%;
+
+  .select-lang-page {
+    @include flex-column;
+    @include fill-area;
+    position: relative;
+    justify-content: space-between;
+    @include for-desktop {
+      @include flex-row;
+    }
+  }
+
+  .content {
+    @include fill-area;
+    @include flex-column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: rem(0) rem(80) rem(0) rem(80);
+  }
+
+  .info {
+    width: 100%;
+    @include vertical-center;
+
+    @include for-desktop {
+      margin-top: rem(120);
+    }
+  }
+
+  .text {
+    text-align: center;
+    @include vertical-center;
+
+    .title {
+      h1 {
+        font-family: $singulier-font;
+        font-size: rem(195);
+        font-weight: $bold;
+        line-height: rem(180);
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-family: $singulier-font;
+        font-size: rem(60);
+        font-weight: $normal;
+        line-height: rem(100);
+        text-transform: uppercase;
+      }
+    }
+
+    .desc {
+      padding: rem(80);
+      p {
+        font-family: $singulier-font;
+        font-size: rem(90);
+        font-weight: $light;
+        line-height: rem(100);
+        text-transform: uppercase;
+      }
+    }
+
+    @include for-desktop {
+      .title {
+        h1 {
+          font-size: rem(120);
+          line-height: rem(100);
+        }
+
+        h2 {
+          font-size: rem(45);
+          line-height: rem(80);
+        }
+      }
+
+      .desc {
+        padding: rem(10) rem(0) rem(90) rem(0);
+        p {
+          font-size: rem(45);
+        }
+      }
+    }
+  }
+
+  .form {
+    @include vertical-center;
+
+    .selectlang {
+      margin-bottom: rem(40);
+
+      .styledSelect {
+        font-family: $singulier-font;
+        font-size: rem(35);
+        font-style: normal;
+      }
+
+      @include for-desktop {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+}

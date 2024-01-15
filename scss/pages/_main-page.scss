@@ -1,0 +1,53 @@
+#main-page {
+  height: 100%;
+  overflow: hidden;
+
+  .main-page {
+    position: relative;
+    rotate: 270deg;
+
+    @include for-desktop {
+      rotate: 0deg;
+    }
+  }
+
+  .main-page,
+  ul {
+    @include flex-row;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -110%);
+
+    li {
+      list-style: none;
+
+      button {
+        cursor: pointer;
+        font-family: $singulier-font;
+        font-weight: $bold;
+        background: none;
+        color: $white;
+        border: none;
+        font-size: rem(500);
+        padding: 0;
+
+        &.locked {
+          user-select: none;
+          pointer-events: none;
+          opacity: 0.5;
+        }
+      }
+    }
+
+    @include for-desktop {
+      top: 42%;
+      left: 35%;
+      li {
+        button {
+          font-size: rem(400);
+        }
+      }
+    }
+  }
+}

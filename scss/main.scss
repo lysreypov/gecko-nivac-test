@@ -1,0 +1,31 @@
+// utilities
+@import "utilities/breakpoints";
+@import "utilities/mixins";
+@import "utilities/variables";
+
+// base
+@import "base/typography";
+
+// layout
+@import "layout/setting";
+@import "layout/background";
+@import "layout/header";
+@import "layout/content";
+@import "layout/footer";
+@import "layout/popup";
+
+// vendors
+@import "vendors/select_customizer";
+
+// components
+@import "components/button";
+@import "components/animation";
+@import "components/chapter-status";
+@import "components/video";
+
+// pages
+@import "pages/select-lang-page";
+@import "pages/welcome-page";
+@import "pages/main-page";
+@import "pages/result-page";
+@import "pages/chapter-game";

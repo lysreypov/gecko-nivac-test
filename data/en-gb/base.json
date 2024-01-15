@@ -1,0 +1,42 @@
+[
+  {
+    "key": "text-enter",
+    "data": {
+      "value": "enter",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-start",
+    "data": {
+      "value": "start",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-redo",
+    "data": {
+      "value": "Redo the quiz",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-close",
+    "data": {
+      "value": "Close",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "quest-mark-popup",
+    "data": {
+      "value": "?",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

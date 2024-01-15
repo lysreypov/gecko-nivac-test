@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Singulier";
+  src: url("../../assets/fonts/Singulier-Bold.eot");
+  src:
+    url("../../assets/fonts/Singulier-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/Singulier-Bold.woff2") format("woff2"),
+    url("../../assets/fonts/Singulier-Bold.woff") format("woff"),
+    url("../../assets/fonts/Singulier-Bold.ttf") format("truetype"),
+    url("../../assets/fonts/Singulier-Bold.svg#Singulier-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Singulier";
+  src: url("../../assets/fonts/Singulier-Heavy.eot");
+  src:
+    url("../../assets/fonts/Singulier-Heavy.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/Singulier-Heavy.woff2") format("woff2"),
+    url("../../assets/fonts/Singulier-Heavy.woff") format("woff"),
+    url("../../assets/fonts/Singulier-Heavy.ttf") format("truetype"),
+    url("../../assets/fonts/Singulier-Heavy.svg#Singulier-Heavy") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Singulier";
+  src: url("../../assets/fonts/Singulier-Demi.eot");
+  src:
+    url("../../assets/fonts/Singulier-Demi.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/Singulier-Demi.woff2") format("woff2"),
+    url("../../assets/fonts/Singulier-Demi.woff") format("woff"),
+    url("../../assets/fonts/Singulier-Demi.ttf") format("truetype"),
+    url("../../assets/fonts/Singulier-Demi.svg#Singulier-Demi") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Singulier";
+  src: url("../../assets/fonts/Singulier-Regular.eot");
+  src:
+    url("../../assets/fonts/Singulier-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/Singulier-Regular.woff2") format("woff2"),
+    url("../../assets/fonts/Singulier-Regular.woff") format("woff"),
+    url("../../assets/fonts/Singulier-Regular.ttf") format("truetype"),
+    url("../../assets/fonts/Singulier-Regular.svg#Singulier-Regular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Singulier";
+  src: url("../../assets/fonts/Singulier-Light.eot");
+  src:
+    url("../../assets/fonts/Singulier-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/Singulier-Light.woff2") format("woff2"),
+    url("../../assets/fonts/Singulier-Light.woff") format("woff"),
+    url("../../assets/fonts/Singulier-Light.ttf") format("truetype"),
+    url("../../assets/fonts/Singulier-Light.svg#Singulier-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Singulier";
+  src: url("../../assets/fonts/Singulier-Thin.eot");
+  src:
+    url("../../assets/fonts/Singulier-Thin.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/Singulier-Thin.woff2") format("woff2"),
+    url("../../assets/fonts/Singulier-Thin.woff") format("woff"),
+    url("../../assets/fonts/Singulier-Thin.ttf") format("truetype"),
+    url("../../assets/fonts/Singulier-Thin.svg#Singulier-Thin") format("svg");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+// TYPOGRAPHY VARIABLES
+
+// to improve robustness, the following generic fonts will be used as a last resort fallback
+// if other fonts previously listed in a stack are not available for rendering/do not include
+// the proper character sets for rendering a particular language
+
+$default-fallback-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$singulier-font: "Singulier";

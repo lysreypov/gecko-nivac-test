@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $black;
+  color: $white;
+
+  &:lang(ar) {
+    [lcz] {
+      // change layout direction (right to left)
+      direction: rtl !important;
+
+      // open an additional level of embedding for inline elements containing multiple languages
+      unicode-bidi: embed !important;
+    }
+
+    // enforce normal rendering of fonts (no italic)
+    font-style: normal !important;
+  }
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  // docs: https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+#main-container {
+  @include flex-column;
+  @include fill-area;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.side {
+  display: none;
+  @include fill-area;
+
+  @include for-desktop {
+    display: block;
+  }
+}
+
+.d-style {
+  display: none;
+
+  @include for-desktop {
+    display: block;
+  }
+}
+
+.m-style {
+  display: block;
+
+  @include for-desktop {
+    display: none;
+  }
+}

@@ -1,0 +1,65 @@
+$nav-desktop: rem(120);
+$nav-mobile: rem(160);
+
+#header {
+  width: 100%;
+  position: absolute;
+  z-index: 6;
+
+  nav {
+    position: relative;
+    @include flex-row;
+    width: 100%;
+    height: $nav-mobile;
+    justify-content: space-between;
+
+    @include for-desktop {
+      height: $nav-desktop;
+    }
+  }
+
+  .logo {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: rem(220);
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+
+    @include for-desktop {
+      top: 70%;
+      left: 74%;
+      height: rem(120);
+    }
+  }
+
+  .logout-icon {
+    margin-top: rem(40);
+    height: rem(70);
+    width: rem(150);
+    background: none;
+    border: none;
+    display: none;
+    cursor: pointer;
+
+    img {
+      @include fill-area;
+      object-fit: $contain;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include for-desktop {
+      height: rem(45);
+      width: rem(130);
+    }
+  }
+}
