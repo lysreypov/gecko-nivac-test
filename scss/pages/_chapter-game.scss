@@ -6,6 +6,26 @@
   height: 100%;
   width: 100%;
 
+  &.chapter-game-page-correct-bg-1 {
+    @include bg-cov(
+      "../../assets/images/pages/chapter-game/ysl-bottle-correct-bg-1.jpg"
+    );
+
+    @include for-desktop {
+      background: none;
+    }
+  }
+
+  &.chapter-game-page-correct-bg-2 {
+    @include bg-cov(
+      "../../assets/images/pages/chapter-game/ysl-bottle-correct-bg-2.jpg"
+    );
+
+    @include for-desktop {
+      background: none;
+    }
+  }
+
   .chapter-game {
     position: relative;
     padding-top: rem(120);
@@ -87,16 +107,11 @@
       font-weight: $normal;
       font-size: rem(45);
       color: $white;
-      line-height: rem(70);
+      line-height: rem(60);
       text-align: center;
     }
 
     .correct-answer {
-      // position: fixed;
-      // z-index: 3;
-      // bottom: rem(-500);
-      // left: 50%;
-      // transform: translate(-50%, 0);
       margin-top: rem(40);
       height: auto;
       width: rem(330);
@@ -117,7 +132,7 @@
       position: absolute;
       z-index: 100;
       height: rem(320);
-      width: auto;
+      width: 100%;
 
       .ysl-logo {
         @include fill-area;
@@ -238,6 +253,7 @@
     }
 
     .drop-bottle {
+      position: relative;
       width: rem(240);
       margin-top: rem(50);
 
@@ -251,6 +267,28 @@
 
       @include for-tablet {
         width: rem(190);
+      }
+
+      .ysl-logo-correct-ans-1,
+      .ysl-logo-correct-ans-2 {
+        position: absolute;
+        z-index: 100;
+        top: 17%;
+        height: rem(320);
+        width: 100%;
+
+        img {
+          @include fill-area;
+          object-fit: $contain;
+        }
+
+        @include for-desktop {
+          height: rem(230);
+        }
+
+        &.hide {
+          display: none;
+        }
       }
     }
 
@@ -279,7 +317,6 @@
       rgba(0, 0, 0, 0.9),
       rgba(0, 0, 0, 1)
     );
-    // background: black;
 
     p {
       font-family: $singulier-font;
@@ -304,7 +341,7 @@
       height: 100%;
       width: 50vw;
       background: rgba(0, 0, 0, 0.85);
-      padding: rem(80);
+      padding: rem(80) rem(200);
       box-sizing: border-box;
 
       p {

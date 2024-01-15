@@ -58,67 +58,24 @@ function gameHandle() {
 
   $(".drop-area").droppable({
     drop: function (event, ui) {
-      let dropAreaChild = $(this).children();
-      let dragElement = ui.helper;
-
-      // Calculate the new position
-      let positionX = dropAreaChild.width() - dragElement.width();
-      let positionY = dropAreaChild.height() - dragElement.height();
-
-      if ($(window).width() < 768) {
-        positionX = positionX * 9.8;
-        positionY = positionY / 1.68;
-      } else {
-        positionX = positionX * 14.7;
-        positionY = positionY / 4.1;
-      }
-
-      // Change position of dragElement
-      function dragElementPos(positionX, delay) {
-        setTimeout(function () {
-          dragElement.animate(
-            {
-              left: positionX,
-              top: positionY,
-            },
-            500
-          );
-        }, delay);
-      }
-
       let gameAns = gameQuestion.data("ans");
 
       if ($(this).data("ans") === gameAns) {
         $store[pageId].yourAns[quesNum - 1] = true;
         $(ui.draggable).draggable("option", "revert", false);
         $(ui.draggable).draggable("destroy");
-
-        if (gameAns === 1) {
-          if ($(window).width() < 768) {
-            positionX = positionX / 2.8;
-          } else {
-            positionX = -positionX / 20;
-          }
-        }
-
-        dragElementPos(positionX, 100);
         showResultText("Well Done!");
       } else {
         $store[pageId].yourAns[quesNum - 1] = false;
         $(ui.draggable).draggable("option", "revert", false);
         $(ui.draggable).delay(1000).shake();
-
-        if ($(this).data("ans") === 2) {
-          if ($(window).width() < 768) {
-            positionX = positionX / 2.8;
-          } else {
-            positionX = -positionX / 20;
-          }
-        }
-
-        dragElementPos(positionX, 1000);
         showResultText("Not Exactly...");
       }
+
+      setTimeout(function () {
+        $(".ysl-logo").fadeOut(200);
+        $(`.ysl-logo-correct-ans-${gameAns}`).fadeIn(200);
+      }, 1000);
 
       setTimeout(function () {
         $("#result-text, .tip-con").fadeOut(animationDuration);
@@ -171,11 +128,8 @@ function showResultMobile(gameAns) {
   $("#main-container").css("overflow-y", "auto");
 
   $("#main-container").addClass(`correct-ans-bg-${gameAns}`);
+  $(pageId).addClass(`chapter-game-page-correct-bg-${gameAns}`);
 
-  $(pageId).css(
-    "background-image",
-    `url("assets/images/pages/chapter-game/ysl-bottle-correct-bg-${gameAns}.jpg")`
-  );
   $(".group-correct-answer-" + gameAns).fadeIn(animationDuration);
 }
 
