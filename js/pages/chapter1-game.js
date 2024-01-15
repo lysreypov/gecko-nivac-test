@@ -170,7 +170,7 @@ function showResultMobile(gameAns) {
   $(".group-drop-right").moveLeftRight("0", "100%").fadeOut(animationDuration);
   $("#main-container").css("overflow-y", "auto");
 
-  // $("#main-container").addClass(`correct-ans-bg-${gameAns}`);
+  $("#main-container").addClass(`correct-ans-bg-${gameAns}`);
 
   $(pageId).css(
     "background-image",

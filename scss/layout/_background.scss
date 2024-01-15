@@ -39,9 +39,7 @@
   }
 
   &.correct-ans-bg-1 {
-    @include bg-cov(
-      "../../assets/images/pages/chapter-game/ysl-bottle-correct-bg-1.jpg"
-    );
+    background: $black;
 
     @include for-desktop {
       @include bg-cov(
@@ -51,9 +49,7 @@
   }
 
   &.correct-ans-bg-2 {
-    @include bg-cov(
-      "../../assets/images/pages/chapter-game/ysl-bottle-correct-bg-2.jpg"
-    );
+    background: $black;
 
     @include for-desktop {
       @include bg-cov(

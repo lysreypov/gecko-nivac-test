@@ -272,14 +272,14 @@
     bottom: rem(-600);
     padding: rem(210) rem(50);
     box-sizing: border-box;
-    // background: linear-gradient(
-    //   to bottom,
-    //   rgba(77, 57, 57, 0),
-    //   rgba(0, 0, 0, 0.7),
-    //   rgba(0, 0, 0, 0.9),
-    //   rgba(0, 0, 0, 1)
-    // );
-    background: black;
+    background: linear-gradient(
+      to bottom,
+      rgba(77, 57, 57, 0),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 1)
+    );
+    // background: black;
 
     p {
       font-family: $singulier-font;
