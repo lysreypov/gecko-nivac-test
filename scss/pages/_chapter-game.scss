@@ -72,7 +72,7 @@
 
     .group-correct-answer {
       position: absolute;
-      bottom: rem(-530);
+      bottom: rem(-600);
       &.hide {
         display: none;
       }
@@ -269,7 +269,7 @@
   .game-debrief {
     position: absolute;
     z-index: 4;
-    bottom: rem(-550);
+    bottom: rem(-600);
     // padding: rem(200) rem(50) rem(180) rem(50);
     // background: linear-gradient(
     //   to bottom,
