@@ -3,7 +3,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 
   .chapter-game {
@@ -62,16 +62,17 @@
   .group-correct-answers {
     position: absolute;
     bottom: 0;
-    z-index: 4;
+    z-index: 1;
     width: 100%;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch;
 
     @include flex-column;
     @include vertical-center;
 
     .group-correct-answer {
-      position: fixed;
-      bottom: rem(-550);
-      z-index: 4;
+      position: absolute;
+      bottom: rem(-530);
       &.hide {
         display: none;
       }
@@ -268,8 +269,8 @@
   .game-debrief {
     position: absolute;
     z-index: 4;
-    bottom: rem(-500);
-    padding: rem(180) rem(50) rem(180) rem(50);
+    bottom: rem(-550);
+    // padding: rem(200) rem(50) rem(180) rem(50);
     // background: linear-gradient(
     //   to bottom,
     //   rgba(77, 57, 57, 0),
