@@ -26,7 +26,11 @@
     }
   }
 
-  &.chapter1-game {
+  &.chapter1-game,
+  &.chapter2-game,
+  &.chapter3-game,
+  &.chapter4-game,
+  &.chapter5-game {
     @include bg-cov(
       "../../assets/images/pages/chapter-game/game-bg-mobile.jpg"
     );

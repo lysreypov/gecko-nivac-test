@@ -122,7 +122,6 @@ function setDataAns(gameQuestion) {
 }
 
 function showResultMobile(gameAns) {
-  $(".drag-icon").fadeOut(200);
   $(".group-drop-left").moveLeftRight("0", "-120%").fadeOut(animationDuration);
   $(".group-drop-right").moveLeftRight("0", "100%").fadeOut(animationDuration);
   $("#main-container").css("overflow-y", "auto");
