@@ -16,8 +16,13 @@
     @include fill-area;
     @include flex-column;
     justify-content: flex-end;
+    align-items: center;
     box-sizing: border-box;
-    padding: rem(0) rem(80) rem(0) rem(80);
+    padding: rem(250) rem(80) rem(0) rem(80);
+
+    @include for-desktop {
+      justify-content: center;
+    }
 
     .info {
       @include vertical-center;
@@ -76,6 +81,7 @@
       }
 
       @include for-desktop {
+        width: rem(650);
         .title {
           h1 {
             font-size: rem(60);
@@ -99,7 +105,7 @@
           }
         }
         .text-desc-3 {
-          padding: rem(20) rem(80);
+          padding: rem(20) rem(10);
           p {
             font-size: rem(28);
             line-height: rem(35);

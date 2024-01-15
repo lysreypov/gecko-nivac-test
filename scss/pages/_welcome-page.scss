@@ -17,7 +17,10 @@
     justify-content: flex-end;
     align-items: center;
     box-sizing: border-box;
-    padding: rem(0) rem(70) rem(0) rem(70);
+    padding: rem(120) rem(70) rem(0) rem(70);
+    @include for-desktop {
+      justify-content: center;
+    }
 
     .info {
       @include vertical-center;
@@ -57,6 +60,10 @@
             font-weight: $normal;
             font-size: rem(70);
             color: $black;
+          }
+
+          @include for-desktop {
+            margin-top: rem(20);
           }
         }
 

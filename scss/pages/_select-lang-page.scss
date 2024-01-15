@@ -29,7 +29,11 @@
     @include flex-column;
     justify-content: flex-end;
     box-sizing: border-box;
-    padding: rem(0) rem(80) rem(0) rem(80);
+    padding: rem(120) rem(80) rem(0) rem(80);
+
+    @include for-desktop {
+      justify-content: center;
+    }
   }
 
   .info {
