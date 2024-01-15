@@ -7,7 +7,6 @@
 node_modules/
 
 
-
 # Compiled Java class files
 *.class
 
@@ -22,7 +21,6 @@ node_modules/
 
 # Maven
 target/
-
 
 
 # JetBrains IDE
@@ -43,7 +41,6 @@ Thumbs.db
 *.war
 
 # Large media files
-
 *.tiff
 *.avi
 *.flv

@@ -67,7 +67,9 @@ $footerHeightD: rem(60);
       cursor: pointer;
 
       &:hover {
-        opacity: 0.7;
+        span {
+          opacity: 0.7;
+        }
       }
     }
   }

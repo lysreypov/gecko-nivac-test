@@ -12,7 +12,7 @@
 
   .content {
     position: absolute;
-    bottom: rem(-20);
+    bottom: rem(40);
     right: rem(40);
     width: rem(1000);
     height: rem(750);
@@ -20,7 +20,12 @@
     color: $black;
     text-align: center;
     z-index: 2;
+    transform: rotate(0) translate(rem(0), rem(0));
+    animation: transformAnimation 0.8s ease-in-out;
 
+    .desc {
+      display: none;
+    }
     span {
       position: absolute;
       z-index: 3;
@@ -32,7 +37,7 @@
     }
 
     p {
-      width: 60%;
+      width: 70%;
       z-index: 4;
       font-family: $singulier-font;
       font-size: rem(45);
@@ -79,5 +84,21 @@
         }
       }
     }
+  }
+}
+
+@keyframes transformAnimation {
+  0% {
+    width: rem(60);
+    height: rem(60);
+    transform: rotate(65deg) scale(0.1) rotate(0) translate(rem(40), rem(40));
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    width: rem(1000);
+    height: rem(750);
+    transform: translate(rem(0), rem(0));
   }
 }
