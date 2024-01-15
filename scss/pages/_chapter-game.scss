@@ -62,16 +62,16 @@
   .group-correct-answers {
     position: absolute;
     bottom: 0;
-    z-index: 1;
+    z-index: 4;
     width: 100%;
-    height: 100vh;
 
     @include flex-column;
     @include vertical-center;
 
     .group-correct-answer {
-      position: absolute;
-      bottom: rem(-500);
+      position: fixed;
+      bottom: rem(-550);
+      z-index: 4;
       &.hide {
         display: none;
       }
