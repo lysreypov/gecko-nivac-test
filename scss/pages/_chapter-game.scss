@@ -61,19 +61,17 @@
 
   .group-correct-answers {
     position: absolute;
-    box-sizing: border-box;
     bottom: 0;
     z-index: 1;
     width: 100%;
-
-    -webkit-box-sizing: border-box; /* Webkit-specific prefix */
+    height: 100vh;
 
     @include flex-column;
     @include vertical-center;
 
     .group-correct-answer {
       position: absolute;
-      bottom: 0;
+      bottom: rem(90);
       &.hide {
         display: none;
       }
