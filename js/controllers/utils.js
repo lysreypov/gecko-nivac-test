@@ -76,12 +76,11 @@ function resetGame() {
   }
 
   // reset game answer for each chapter
-  $store["#chapter1-game"].yourAns =
-    $store["#chapter2-game"].yourAns =
-    $store["#chapter3-game"].yourAns =
-    $store["#chapter4-game"].yourAns =
-    $store["#chapter5-game"].yourAns =
-      [false, false];
+  $store["#chapter1-game"].yourAns = [false, false];
+  $store["#chapter2-game"].yourAns = [false, false];
+  $store["#chapter3-game"].yourAns = [false, false];
+  $store["#chapter4-game"].yourAns = [false, false];
+  $store["#chapter5-game"].yourAns = [false, false];
 }
 
 function resetGameChapters() {
