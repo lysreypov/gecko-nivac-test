@@ -6,8 +6,8 @@ var mobileBreakPoint = 768;
 function nextBtnClicked(e) {
   e.preventDefault();
 
-  $(".arrow-next").fadeOut(animationDuration);
   arrowNext.clearAnim();
+  arrowNextCon.fadeOut(animationDuration);
 
   if (quesNum < 2) {
     quesNum++;
@@ -26,8 +26,6 @@ $(function () {
 
 function animationHandle() {
   textChapStatusControl();
-
-  $(".arrow-next").fadeIn(animationDuration);
 
   $("#result-text").hide();
   $(".hand-icon").moveUpDown();
@@ -83,6 +81,7 @@ function gameHandle() {
 
       setTimeout(function () {
         $("#result-text, .tip-con").fadeOut(200);
+        arrowNextCon.fadeIn(200);
         $(".game-ans-debrief").html(window[`game-ans-debrief-${quesNum}`]);
 
         if (!isVertical()) {

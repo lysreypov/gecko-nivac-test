@@ -13,6 +13,7 @@ var navTitle = $("#nav-title");
 var footer = $("#footer");
 
 // Footer
+var arrowNextCon = $(".arrow-next-con");
 var arrowNext = $("#arrow-next");
 var tipCon = $(".tip-con");
 var mainPageTip = $("#main-page-tip");

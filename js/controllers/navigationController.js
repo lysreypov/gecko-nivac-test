@@ -51,13 +51,6 @@ function inArrayNavMod() {
 
   var hideTip = ["select-lang-page", "welcome-page", "result-page"];
 
-  var hideArrowNext = [
-    "select-lang-page",
-    "welcome-page",
-    "main-page",
-    "chapter1-game",
-  ];
-
   // hide logout button
   if (hideLogoutBtn.includes(pageName)) {
     logoutBtn.hide();
@@ -89,13 +82,6 @@ function inArrayNavMod() {
     gameTip.hide();
   } else {
     gameTip.show();
-  }
-
-  // hide footer
-  if (hideArrowNext.includes(pageName)) {
-    arrowNext.hide();
-  } else {
-    arrowNext.fadeIn(animationDuration);
   }
 
   // hide tip button

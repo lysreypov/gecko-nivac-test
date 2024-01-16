@@ -15,7 +15,7 @@ $footerHeightD: rem(60);
     z-index: 4;
   }
 
-  .arrow-next {
+  .arrow-next-con {
     display: none;
     position: absolute;
     z-index: 100;
@@ -29,8 +29,8 @@ $footerHeightD: rem(60);
       position: absolute;
       bottom: rem(40);
       right: rem(40);
-      width: rem(80);
-      height: rem(80);
+      width: rem(90);
+      height: rem(90);
       padding: rem(20);
       border: none;
       cursor: pointer;
@@ -67,9 +67,7 @@ $footerHeightD: rem(60);
       cursor: pointer;
 
       &:hover {
-        span {
-          opacity: 0.7;
-        }
+        opacity: 0.7;
       }
     }
   }

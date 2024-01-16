@@ -3,8 +3,10 @@ var quesNum = $store[pageId].question;
 
 function nextBtnClicked(e) {
   e.preventDefault();
-  $(".arrow-next").fadeOut(animationDuration);
+
   arrowNext.clearAnim();
+  arrowNextCon.fadeOut(animationDuration);
+  
   if (quesNum < 6) {
     quesNum++;
     $store[pageId].question = quesNum;
@@ -79,6 +81,7 @@ function gameHandle() {
 
       setTimeout(function () {
         $("#result-text, .tip-con").fadeOut(200);
+        arrowNextCon.fadeIn(200);
         $(".game-ans-debrief").html(window[`game-ans-debrief-${quesNum}`]);
 
         if (!isVertical()) {

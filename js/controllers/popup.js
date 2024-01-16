@@ -1,13 +1,17 @@
 $("#tip-btn").on("click", function () {
   $("#popup").show();
-  $(this).fadeOut(animationDuration);
+  $(".content").removeClass("close").addClass("open");
+  $(this).fadeOut(200);
   setTimeout(function () {
     $(".desc").fadeIn(animationDuration);
-  }, 400);
+  }, 600);
 });
 
 $("#close-btn").on("click", function () {
   $(".desc").fadeOut(animationDuration);
-  $("#popup").hide();
-  $("#tip-btn").fadeIn(animationDuration);
+  $(".content").removeClass("open").addClass("close");
+  setTimeout(function () {
+    $("#popup").hide();
+    $("#tip-btn").show();
+  }, 600);
 });

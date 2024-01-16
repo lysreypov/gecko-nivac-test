@@ -59,7 +59,7 @@ var moduleStart = {
         if (GetURLParameter("_goto")) {
           _goto(GetURLParameter("_goto"));
         } else {
-          _goto("chapter1-game");
+          _goto("select-lang-page");
         }
       }
     );

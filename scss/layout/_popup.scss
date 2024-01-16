@@ -12,16 +12,26 @@
 
   .content {
     position: absolute;
-    bottom: rem(40);
-    right: rem(40);
     width: rem(1000);
     height: rem(750);
+    bottom: rem(40);
+    right: rem(40);
     background-color: $white;
     color: $black;
     text-align: center;
     z-index: 2;
-    transform: rotate(0) translate(rem(0), rem(0));
-    animation: transformAnimation 0.8s ease-in-out;
+
+    &.open {
+      transform: rotate(0) translate(rem(0), rem(0));
+      animation: openPopupM 0.8s ease-in-out;
+    }
+
+    &.close {
+      width: 0;
+      height: 0;
+      transform: rotate(0) translate(rem(0), rem(0));
+      animation: closePopupM 0.8s ease-in-out;
+    }
 
     .desc {
       display: none;
@@ -69,6 +79,13 @@
     @include for-desktop {
       width: rem(720);
       height: rem(450);
+      &.open {
+        animation: openPopupD 0.8s ease-in-out;
+      }
+
+      &.close {
+        animation: closePopupD 0.8s ease-in-out;
+      }
 
       span {
         font-size: rem(300);
@@ -87,7 +104,7 @@
   }
 }
 
-@keyframes transformAnimation {
+@keyframes openPopupM {
   0% {
     width: rem(60);
     height: rem(60);
@@ -100,5 +117,53 @@
     width: rem(1000);
     height: rem(750);
     transform: translate(rem(0), rem(0));
+  }
+}
+
+@keyframes openPopupD {
+  0% {
+    width: rem(60);
+    height: rem(60);
+    transform: rotate(65deg) scale(0.1) rotate(0) translate(rem(40), rem(40));
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    width: rem(720);
+    height: rem(450);
+    transform: translate(rem(0), rem(0));
+  }
+}
+
+@keyframes closePopupM {
+  0% {
+    width: rem(1000);
+    height: rem(750);
+    transform: scale(1) rotate(0) translate(rem(0), rem(0));
+  }
+  50% {
+    transform: rotate(55deg);
+  }
+  100% {
+    width: rem(60);
+    height: rem(60);
+    transform: scale(0) translate(rem(40), rem(40));
+  }
+}
+
+@keyframes closePopupD {
+  0% {
+    width: rem(720);
+    height: rem(450);
+    transform: scale(1) rotate(0) translate(rem(0), rem(0));
+  }
+  50% {
+    transform: rotate(35deg);
+  }
+  100% {
+    width: rem(60);
+    height: rem(60);
+    transform: scale(0) translate(rem(40), rem(40));
   }
 }
