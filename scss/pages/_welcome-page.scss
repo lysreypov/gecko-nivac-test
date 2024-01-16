@@ -1,5 +1,6 @@
 #welcome-page {
   height: 100%;
+  overflow: hidden;
   .welcome-page {
     @include flex-column;
     @include fill-area;

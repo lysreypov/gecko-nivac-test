@@ -145,7 +145,7 @@
       }
 
       @include for-desktop {
-        height: rem(230);
+        height: rem(260);
       }
 
       @include for-tablet {
@@ -278,8 +278,8 @@
       .ysl-logo-correct-ans-2 {
         position: absolute;
         z-index: 100;
-        top: 17%;
-        height: rem(320);
+        top: 15.5%;
+        height: rem(335);
         width: 100%;
 
         img {
@@ -288,7 +288,7 @@
         }
 
         @include for-desktop {
-          height: rem(240);
+          height: rem(260);
         }
 
         &.hide {
