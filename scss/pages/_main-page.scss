@@ -24,19 +24,34 @@
 
       button {
         cursor: pointer;
-        font-family: $singulier-font;
-        font-weight: $bold;
         background: none;
-        color: $white;
         border: none;
-        font-size: rem(500);
         padding: 0;
+        height: rem(450);
 
         &.locked {
           user-select: none;
           pointer-events: none;
           opacity: 0.5;
         }
+
+        img {
+          @include fill-area;
+        }
+      }
+
+      .chapter-1 {
+        width: rem(420);
+      }
+      .chapter-2 {
+        width: rem(350);
+      }
+      .chapter-3 {
+        width: rem(330);
+      }
+      .chapter-4,
+      .chapter-5 {
+        width: rem(300);
       }
     }
 
@@ -45,7 +60,21 @@
       left: 35%;
       li {
         button {
-          font-size: rem(400);
+          height: rem(350);
+        }
+
+        .chapter-1 {
+          width: rem(320);
+        }
+        .chapter-2 {
+          width: rem(270);
+        }
+        .chapter-3 {
+          width: rem(260);
+        }
+        .chapter-4,
+        .chapter-5 {
+          width: rem(230);
         }
       }
     }
