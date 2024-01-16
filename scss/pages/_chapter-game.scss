@@ -130,12 +130,17 @@
 
     .drag-icon {
       position: absolute;
-      z-index: 100;
+      z-index: 10;
       height: rem(320);
       width: 100%;
 
+      @include flex-row;
+      justify-content: center;
+
       .ysl-logo {
-        @include fill-area;
+        cursor: pointer;
+        height: 100%;
+        width: auto;
         object-fit: $contain;
       }
 
@@ -273,8 +278,8 @@
       .ysl-logo-correct-ans-2 {
         position: absolute;
         z-index: 100;
-        top: 18%;
-        height: rem(260);
+        top: 17%;
+        height: rem(320);
         width: 100%;
 
         img {
@@ -283,7 +288,7 @@
         }
 
         @include for-desktop {
-          height: rem(200);
+          height: rem(240);
         }
 
         &.hide {

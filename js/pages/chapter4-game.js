@@ -62,20 +62,23 @@ function gameHandle() {
         $(ui.draggable).draggable("option", "revert", false);
         $(ui.draggable).draggable("destroy");
         showResultText("Well Done!");
+        setTimeout(function () {
+          $(".ysl-logo").hide();
+          $(`.ysl-logo-correct-ans-${gameAns}`).fadeIn(500);
+        }, 100);
       } else {
         $store[pageId].yourAns[quesNum - 7] = false;
         $(ui.draggable).draggable("option", "revert", false);
         $(ui.draggable).delay(1000).shake();
         showResultText("Not Exactly...");
+        setTimeout(function () {
+          $(".ysl-logo").hide();
+          $(`.ysl-logo-correct-ans-${gameAns}`).fadeIn(500);
+        }, 800);
       }
 
       setTimeout(function () {
-        $(".ysl-logo").fadeOut(200);
-        $(`.ysl-logo-correct-ans-${gameAns}`).fadeIn(200);
-      }, 1000);
-
-      setTimeout(function () {
-        $("#result-text, .tip-con").fadeOut(animationDuration);
+        $("#result-text, .tip-con").fadeOut(200);
         $(".game-ans-debrief").html(window[`game-ans-debrief-${quesNum}`]);
 
         if (!isVertical()) {
@@ -89,7 +92,7 @@ function gameHandle() {
         }, 3000);
 
         arrowNext.one("click", nextBtnClicked);
-      }, 5000);
+      }, 4000);
     },
   });
 }
@@ -100,7 +103,7 @@ function showResultText(text) {
     setTimeout(function () {
       $("#result-text").pulseTwices();
     }, 1000);
-  }, 1000);
+  }, 500);
 }
 
 function setDataAns(gameQuestion) {
