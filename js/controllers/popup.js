@@ -1,4 +1,5 @@
-$("#tip-btn").on("click", function () {
+$("#tip-btn").on("click", function (e) {
+  e.preventDefault();
   $("#popup").show();
   $(".content").removeClass("close").addClass("open");
   $(this).fadeOut(200);
@@ -7,7 +8,8 @@ $("#tip-btn").on("click", function () {
   }, 600);
 });
 
-$("#close-btn").on("click", function () {
+$("#close-btn").on("click", function (e) {
+  e.preventDefault();
   $(".desc").fadeOut(animationDuration);
   $(".content").removeClass("open").addClass("close");
   setTimeout(function () {

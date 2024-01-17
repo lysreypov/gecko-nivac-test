@@ -57,6 +57,8 @@ $footerHeightD: rem(60);
 
     .tip-btn {
       position: absolute;
+      color: $black;
+      font-family: $singulier-font;
       bottom: rem(40);
       right: rem(40);
       width: rem(90);
