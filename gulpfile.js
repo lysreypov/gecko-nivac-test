@@ -29,12 +29,18 @@ import jsonMinify from "gulp-jsonminify";
 // html minify
 import htmlmin from "gulp-htmlmin";
 
+// JS uglify
+import uglify from "gulp-uglify";
+
 // util dependencies
 import { deleteAsync } from "del";
 import { preload } from "./gulp-preload.js";
 import { generate } from "./gulp-generate.js";
+
+// docs: https://www.npmjs.com/package/dotenv
+import * as dotenv from "dotenv";
 try {
-  require("dotenv").config();
+  dotenv.config();
 } catch (e) {}
 
 /*  ==================================================
@@ -49,7 +55,7 @@ try {
 
 gulp.task(
   "default",
-  gulp.parallel(minifyDevScss, minifyLibrary, minifyController)
+  gulp.parallel(minifyDevScss, uglifyLibrary, minifyController)
 );
 gulp.task(
   "build",
@@ -57,12 +63,13 @@ gulp.task(
     clean,
     gulp.parallel(
       minifyProdScss,
-      minifyLibrary,
       minifyController,
       minifyHtml,
-      minifyJson
+      minifyImage,
+      minifyJson,
+      uglifyLibrary,
+      uglifyPages
     ),
-    moveFile,
     moveFolder
   )
 );
@@ -76,8 +83,8 @@ gulp.task("watch", function (done) {
 
   // file that need to pack and minify
   gulp.watch("scss/**/*.scss", minifyDevScss);
-  gulp.watch("js/controllers/*.js", minifyController);
-  gulp.watch("js/libs/*.js", minifyLibrary);
+  gulp.watch("js/controller/*.js", minifyController);
+  gulp.watch("js/libs/*.js", uglifyLibrary);
   gulp.watch("assets/images/**/**/**/**/*.{png,jpg,jpeg,gif,svg}", autoPreload);
 
   // file that only require reload browser
@@ -91,7 +98,7 @@ gulp.task("watch", function (done) {
 
 gulp.task("optimize", function () {
   return gulp
-    .src("./assets/images/**/**/**/*{png,jpg,jpeg,svg}", { base: "./" })
+    .src("./assets/images/**/**/**/*", { base: "./" })
     .pipe(imagemin())
     .pipe(gulp.dest("./"));
 });
@@ -114,7 +121,7 @@ function minifyDevScss() {
     .pipe(wait(500))
     .pipe(sourcemaps.init())
     .pipe(dependents())
-    .pipe(sass())
+    .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(minifyCss())
     .pipe(sourcemaps.write())
@@ -122,27 +129,20 @@ function minifyDevScss() {
     .pipe(browserSync.stream());
 }
 
-// FIXME: need improvement,
 function minifyProdScss() {
-  return (
-    gulp
-      .src("scss/*.scss")
-      .pipe(wait(500))
-      // .pipe(sourcemaps.init()) // remove sourcemap
-      .pipe(sass().on("error", throwError))
-      .pipe(sass())
-      .pipe(autoprefixer())
-      .pipe(cssnano())
-
-      // .pipe(sourcemaps.write()) // remove sourcemap
-      .pipe(wait(500))
-      .pipe(gulp.dest("dist/css"))
-  );
+  return gulp
+    .src("scss/*.scss")
+    .pipe(wait(500))
+    .pipe(sass().on("error", throwError))
+    .pipe(autoprefixer())
+    .pipe(cssnano())
+    .pipe(wait(500))
+    .pipe(gulp.dest("dist/css"));
 }
 
 function minifyController() {
   return gulp
-    .src("js/controllers/*.js")
+    .src("js/controller/*.js")
     .pipe(
       babel({
         presets: [["@babel/preset-env", { modules: false }]],
@@ -154,31 +154,40 @@ function minifyController() {
     .pipe(browserSync.stream());
 }
 
-function minifyLibrary() {
+function uglifyPages() {
+  return gulp
+    .src(["js/pages/*.js"], { sourcemaps: true })
+    .pipe(
+      babel({
+        presets: [["@babel/preset-env", { modules: false }]],
+      })
+    )
+    .pipe(uglify())
+    .pipe(gulp.dest("dist/js/pages"));
+}
+
+function uglifyLibrary() {
   return gulp
     .src([
-      "js/libs/jquery-3.7.1.min.js",
+      "js/libs/jquery.min.js",
       "js/libs/jquery-ui.min.js",
-      "js/libs/jquery.mousewheel.min.js",
       "js/libs/jquery.ui.touch-punch.min.js",
+      "js/libs/jquery.mousewheel.min.js",
       "js/libs/gsap.min.js",
-      "js/libs/selectcustomizer.min.js",
-      "js/libs/swiper.min.js",
     ])
     .pipe(
       babel({
         presets: [["@babel/preset-env", { modules: false }]],
       })
     )
+    .pipe(uglify())
     .pipe(concat("library.js"))
-    .pipe(terser())
-    .pipe(gulp.dest("dist/js"))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest("dist/js"));
 }
 
 function minifyImage() {
   return gulp
-    .src("./assets/images/**/**/**/*", { base: "./" })
+    .src("./images/**/**/**/*", { base: "./" })
     .pipe(imagemin())
     .pipe(gulp.dest("./dist"));
 }
@@ -192,7 +201,7 @@ function minifyJson() {
 
 function minifyHtml() {
   return gulp
-    .src(["./templates/**/**.html", "index.html"], {
+    .src(["./templates/*.html", "index.html"], {
       base: "./",
     })
     .pipe(
@@ -216,20 +225,8 @@ function clean() {
   return deleteAsync(["build"]);
 }
 
-async function moveFile() {
-  const fileName = [
-    "dist/js/scripts.js",
-    "dist/js/library.js",
-    "data/**/*.vtt",
-  ];
-
-  await fileName.forEach((file) => {
-    gulp.src(file, { base: "./" }).pipe(gulp.dest("./dist"));
-  });
-}
-
 async function moveFolder() {
-  const folderName = ["js/pages", "assets/images", "assets/videos"];
+  const folderName = ["assets/videos", "assets/pdf"];
   await folderName.forEach((folder) => {
     gulp
       .src("./" + folder + "/**/**/*", { base: "./" })

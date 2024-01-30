@@ -1,13 +1,5 @@
 [
   {
-    "key": "text-enter",
-    "data": {
-      "value": "enter",
-      "validated": true,
-      "comment": ""
-    }
-  },
-  {
     "key": "text-start",
     "data": {
       "value": "start",
@@ -16,25 +8,25 @@
     }
   },
   {
-    "key": "text-redo",
+    "key": "text-skip",
     "data": {
-      "value": "Redo the quiz",
+      "value": "Skip video",
       "validated": true,
       "comment": ""
     }
   },
   {
-    "key": "text-close",
+    "key": "text-discover",
     "data": {
-      "value": "Close",
+      "value": "Discover",
       "validated": true,
       "comment": ""
     }
   },
   {
-    "key": "quest-mark-popup",
+    "key": "text-rediscover",
     "data": {
-      "value": "?",
+      "value": "Rediscover",
       "validated": true,
       "comment": ""
     }

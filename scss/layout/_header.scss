@@ -1,65 +1,72 @@
-$nav-desktop: rem(120);
-$nav-mobile: rem(160);
+$nav-mobile: rem(140);
 
 #header {
+  display: none;
+}
+
+#header,
+.nav {
+  position: relative;
+  z-index: 4;
   width: 100%;
-  position: absolute;
-  z-index: 6;
+  height: $nav-mobile;
 
-  nav {
-    position: relative;
-    @include flex-row;
-    width: 100%;
-    height: $nav-mobile;
-    justify-content: space-between;
-
-    @include for-desktop {
-      height: $nav-desktop;
-    }
-  }
-
-  .logo {
-    display: none;
+  // if you need header float and leave content full screen
+  &.absolute {
     position: absolute;
-    z-index: 3;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    height: rem(220);
+    top: 0;
+    left: 0;
+  }
 
+  ul {
+    right: rem(50);
+  }
+
+  ul li {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__ham,
+  &__exit {
+    box-sizing: content-box;
+    height: auto;
+    cursor: pointer;
+    padding: rem(35) rem(40);
+  }
+
+  &__ham {
+    width: rem(68);
+  }
+
+  &__exit {
+    width: rem(68);
+    margin-top: rem(-10);
+  }
+
+  &__title {
     img {
-      height: 100%;
-      width: auto;
-    }
-
-    @include for-desktop {
-      top: 70%;
-      left: 74%;
-      height: rem(120);
+      width: rem(367.76);
+      height: rem(45);
+      margin: 0 auto;
     }
   }
 
-  .logout-icon {
-    margin-top: rem(40);
-    height: rem(70);
-    width: rem(150);
-    background: none;
-    border: none;
+  &__logo {
     display: none;
-    cursor: pointer;
-
-    img {
-      @include fill-area;
-      object-fit: $contain;
-    }
-
-    &:hover {
-      opacity: 0.7;
-    }
-
-    @include for-desktop {
-      height: rem(45);
-      width: rem(130);
+    .text-title {
+      text-transform: uppercase;
+      font-size: rem(37);
+      margin-top: rem(5);
     }
   }
 }

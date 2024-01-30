@@ -1,25 +1,6 @@
-// video,
-// .video {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// }
-
-// .video {
-//   width: 100%;
-//   height: auto;
-// }
-
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  @include for-mobile {
-    width: auto;
-    min-width: 100%;
-  }
+.video,
+video {
+  @include fill-area;
+  background-color: $main-color;
+  object-fit: contain;
 }

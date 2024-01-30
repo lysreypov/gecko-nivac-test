@@ -7,7 +7,6 @@
 node_modules/
 
 
-
 # Compiled Java class files
 *.class
 
@@ -22,8 +21,7 @@ node_modules/
 
 # Maven
 target/
-
-
+dist/
 
 # JetBrains IDE
 .idea/

@@ -1,7 +1,5 @@
 * {
-  margin: 0;
   box-sizing: border-box;
-  padding: 0;
 }
 
 html,
@@ -9,21 +7,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: $black;
-  color: $white;
-
-  &:lang(ar) {
-    [lcz] {
-      // change layout direction (right to left)
-      direction: rtl !important;
-
-      // open an additional level of embedding for inline elements containing multiple languages
-      unicode-bidi: embed !important;
-    }
-
-    // enforce normal rendering of fonts (no italic)
-    font-style: normal !important;
-  }
 }
 
 html {
@@ -39,12 +22,17 @@ html {
   user-select: none;
 }
 
-#main-container {
-  @include flex-column;
-  @include fill-area;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
+body {
+  @include user-select-none;
+  @include flex-center;
+  margin: 0;
+  padding: 0;
+
+  font-family: $montblanc-type-font;
+  color: $text-color;
+  font-weight: normal;
+  text-align: center;
+  font-size: rem(52);
 }
 
 img {
@@ -55,27 +43,10 @@ img {
   object-fit: cover;
 }
 
-.side {
-  display: none;
+#main-container {
+  @include flex-column;
   @include fill-area;
-
-  @include for-desktop {
-    display: block;
-  }
-}
-
-.d-style {
-  display: none;
-
-  @include for-desktop {
-    display: block;
-  }
-}
-
-.m-style {
-  display: block;
-
-  @include for-desktop {
-    display: none;
-  }
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
 }

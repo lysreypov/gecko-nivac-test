@@ -1,0 +1,50 @@
+[
+  {
+    "key": "title-menu",
+    "data": {
+      "value": "Menu",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "menu1",
+    "data": {
+      "value": "Manifesto",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "menu2",
+    "data": {
+      "value": "Collaboration",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "menu3",
+    "data": {
+      "value": "Empowerment",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "menu4",
+    "data": {
+      "value": "Client Obsession",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "menu5",
+    "data": {
+      "value": "Self Evaluation",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

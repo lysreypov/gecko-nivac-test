@@ -1,0 +1,86 @@
+#main-page-1 {
+  @include fill-area;
+  .main-page-1 {
+    @include fill-area;
+
+    .group-content {
+      position: relative;
+      z-index: 1;
+      padding-bottom: rem(170);
+      box-sizing: border-box;
+      @include fill-area;
+
+      .content-illus {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        z-index: -1;
+        width: rem(1300);
+
+        img {
+          @include fill-area;
+          object-fit: contain;
+        }
+      }
+      .content-elem {
+        @include fill-area;
+        @include flex-column;
+        align-items: center;
+        justify-content: flex-end;
+
+        h1 {
+          font-size: rem(60);
+          text-transform: uppercase;
+        }
+
+        span {
+          font-size: rem(35);
+        }
+
+        .brush {
+          width: 80%;
+          @include flex-column-center;
+          @include bg-cov("../../assets/images/pages/main-page-1/brush.png");
+          background-size: 100% 100%;
+          margin-left: rem(20);
+          margin-bottom: rem(20);
+          height: rem(380);
+        }
+
+        .btn2 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+#main-page-1,
+#main-page-2,
+#main-page-3,
+#main-page-4,
+#main-page-5 {
+  .navigation-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: rem(76);
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .ball {
+    border-radius: 50%;
+    background-color: $black;
+    width: rem(18);
+    height: rem(18);
+    margin-right: rem(28);
+    &-yellow {
+      background-color: $yellow;
+      width: rem(26);
+      height: rem(26);
+    }
+  }
+}

@@ -1,76 +1,76 @@
-$footerHeightM: rem(130);
-$footerHeightD: rem(60);
+$footerHeight: rem(120);
 
 #footer {
-  position: relative;
-  height: $footerHeightM;
+  display: none;
+  height: $footerHeight;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 
-  @include for-desktop {
-    height: $footerHeightD;
+.progress-bar {
+  width: 100%;
+  position: relative;
+  @include flex-center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  .progress {
+    &__bar {
+      width: 100%;
+      height: 100%;
+      @include flex-center;
+
+      .bar-inside {
+        display: none;
+        width: rem(100);
+        height: rem(7);
+        background: $yellow;
+        margin: 0 rem(15);
+        border-radius: rem(15);
+
+        &.active {
+          background: $black;
+        }
+      }
+    }
+  }
+
+  .flip {
+    &-next,
+    &-prev {
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+      width: rem(120);
+      @include flex-center;
+      left: auto;
+      right: auto;
+      box-sizing: content-box;
+
+      &.locked {
+        opacity: 0;
+      }
+    }
+
+    &__inner {
+      @include flex-center;
+    }
+
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  &.none {
+    display: none !important;
   }
 
   &.absolute {
     position: absolute;
     bottom: 0;
-    z-index: 4;
-  }
-
-  .arrow-next-con {
-    display: none;
-    position: absolute;
-    z-index: 100;
-    bottom: rem(-600);
-    right: 0;
-    width: rem(60);
-    height: rem(60);
-    background: rgba(250, 250, 250, 0.5);
-
-    .next-btn {
-      position: absolute;
-      bottom: rem(40);
-      right: rem(40);
-      width: rem(90);
-      height: rem(90);
-      padding: rem(20);
-      border: none;
-      cursor: pointer;
-
-      img {
-        @include fill-area;
-      }
-    }
-
-    @include for-desktop {
-      bottom: 0;
-    }
-  }
-
-  .tip-con {
-    display: none;
-    position: absolute;
-    z-index: 100;
-    bottom: 0;
-    right: 0;
-    width: rem(60);
-    height: rem(60);
-    background: rgba(250, 250, 250, 0.5);
-
-    .tip-btn {
-      position: absolute;
-      color: $black;
-      font-family: $singulier-font;
-      bottom: rem(40);
-      right: rem(40);
-      width: rem(90);
-      height: rem(90);
-      border: none;
-      border-radius: 0;
-      font-size: rem(60);
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.7;
-      }
-    }
+    z-index: 10;
   }
 }

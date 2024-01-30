@@ -1,0 +1,129 @@
+$menuHeader: rem(242);
+
+.menu-overlay {
+  @include absolute-fill-area;
+  height: 100vh;
+
+  backdrop-filter: blur(rem(10));
+  --webkit-backdrop-filter: blur(rem(10));
+
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 5;
+  display: none;
+
+  .menu {
+    position: relative;
+    @include fill-area;
+    @include bg-cov("../../assets/images/general/paper-bg.jpg");
+
+    .group-title {
+      @include flex-column;
+      justify-content: center;
+      text-align: left;
+      padding-top: rem(30);
+      height: $menuHeader;
+
+      .text-title {
+        font-family: $northwell-font;
+        font-size: rem(160);
+        font-weight: $light;
+        color: $black;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .menu_list {
+      height: calc(100% - #{$menuHeader});
+      overflow: auto;
+
+      padding-top: rem(100);
+
+      &::-webkit-scrollbar-thumb {
+        background: $black;
+        border-radius: 0;
+      }
+
+      ul {
+        height: rem(250);
+        margin: 0;
+        padding: 0;
+
+        li {
+          position: relative;
+          color: $black;
+          text-align: left;
+          list-style: none;
+          letter-spacing: rem(0.5);
+          font-weight: $bold;
+          cursor: pointer;
+          text-transform: uppercase;
+          font-size: rem(60);
+          padding: rem(55) rem(60);
+          margin-bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .title {
+            font-style: normal;
+            position: relative;
+            z-index: 5;
+          }
+
+          &:after {
+            content: "";
+          }
+
+          &.locked {
+            pointer-events: none;
+            font-weight: $light;
+            opacity: 0.3;
+            cursor: default;
+            text-align: center;
+
+            .title {
+              font-weight: $light;
+            }
+          }
+
+          &.active {
+            color: $main-color;
+            height: rem(300);
+
+            &:after {
+              @include absolute-fill-area;
+              @include bg-con(
+                "../../assets/images/general/menu-stain-yellow.png"
+              );
+            }
+
+            .title {
+              font-weight: $bold;
+            }
+          }
+
+          &.none {
+            display: none;
+          }
+
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: rem(53.7);
+      right: rem(45);
+      cursor: pointer;
+      z-index: 2;
+      width: rem(80);
+      height: rem(80);
+    }
+  }
+}

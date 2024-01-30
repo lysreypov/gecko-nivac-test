@@ -6,17 +6,19 @@ $(function () {
 });
 
 function animationHandle() {
+  $("#welcome-logo").scale();
+
   setTimeout(() => {
-    $(".start-btn").removeClass("locked").pulse();
-  }, 3000);
+    $(".stain-yellow").fadeIn(animationDuration);
+    setTimeout(() => {
+      $(".info, .btn-start").fadeIn(animationDuration);
+      $(".btn-start").pulse();
+    }, 500);
+  }, 1000);
 }
 
 function gameHandle() {
-  $(".start-btn").on("click", function () {
-    $(this).clearAnim();
-    unlockChap(1);
-    _goto($store[pageId].nextPage);
+  $(".btn-start").one("click", function () {
+    _goto("welcome-page-2");
   });
 }
-
-preloadImages("main-page");

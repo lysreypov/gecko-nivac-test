@@ -1,6 +1,6 @@
 [
   {
-    "key": "page-title",
+    "key": "text-welcome",
     "data": {
       "value": "Welcome",
       "validated": true,
@@ -8,25 +8,17 @@
     }
   },
   {
-    "key": "text-desc1",
+    "key": "desc",
     "data": {
-      "value": "Select each <strong> MYSLF </strong> letter to discover questions and play with the franchise.",
+      "value": "to your onboarding module",
       "validated": true,
       "comment": ""
     }
   },
   {
-    "key": "text-desc2",
+    "key": "title",
     "data": {
-      "value": "For each question, drag & drop the YSL Cassandre onto the right MYSLF bottle.",
-      "validated": true,
-      "comment": ""
-    }
-  },
-  {
-    "key": "text-desc3",
-    "data": {
-      "value": "At any time, select this icon to remember what to do.",
+      "value": "Cultural Accelerators",
       "validated": true,
       "comment": ""
     }

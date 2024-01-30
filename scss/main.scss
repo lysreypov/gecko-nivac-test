@@ -1,31 +1,28 @@
 // utilities
-@import "utilities/breakpoints";
-@import "utilities/mixins";
+@import "utilities/breakpoint";
+@import "utilities/mixin";
 @import "utilities/variables";
 
 // base
 @import "base/typography";
 
 // layout
-@import "layout/setting";
-@import "layout/background";
 @import "layout/header";
-@import "layout/content";
+@import "layout/menu";
 @import "layout/footer";
-@import "layout/popup";
-
-// vendors
-@import "vendors/select_customizer";
+@import "layout/content";
+@import "layout/background";
+@import "layout/setting";
 
 // components
 @import "components/button";
-@import "components/animation";
-@import "components/chapter-status";
 @import "components/video";
 
 // pages
-@import "pages/select-lang-page";
-@import "pages/welcome-page";
-@import "pages/main-page";
-@import "pages/result-page";
-@import "pages/chapter-game";
+@import "pages/welcome-page.scss";
+@import "pages/welcome-page-2.scss";
+@import "pages/main-page-1";
+@import "pages/main-page-2";
+@import "pages/main-page-3";
+@import "pages/main-page-4";
+@import "pages/main-page-5";

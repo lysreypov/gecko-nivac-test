@@ -4,64 +4,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dist/css/main.css" />
-    <title>YSL – MYSLF THE COLLECTION</title>
+    <title>MONTBLANC – ONBOARDING ELEARNING2 – MAISON & CULTURE</title>
   </head>
   <body>
-    <!-- PACKAGE 2023.12.20 -->
     <div id="main-container">
       <header id="header">
-        <nav>
-          <div class="nav-side"></div>
-          <div id="logo" class="logo">
-            <img src="assets/images/general/ysl-logo.png" alt="ysl-logo" />
-          </div>
-          <div id="nav-title" class="chapter-status">
-            <ul>
-              <li><p class="text-chapter inactive" lcz="chapter-1"></p></li>
-              <li><p class="text-chapter inactive" lcz="chapter-2"></p></li>
-              <li><p class="text-chapter inactive" lcz="chapter-3"></p></li>
-              <li><p class="text-chapter inactive" lcz="chapter-4"></p></li>
-              <li><p class="text-chapter inactive" lcz="chapter-5"></p></li>
-            </ul>
-          </div>
-          <button id="logout" class="logout-icon">
-            <img
-              src="assets/images/general/logout-icon.svg"
-              alt="Logout Icon"
-            />
-          </button>
-        </nav>
-      </header>
+        <div class="menu-overlay">
+          <div class="menu">
+            <div class="group-title">
+              <h1 class="text-title" lcz="title-menu"></h1>
+            </div>
 
-      <main id="content"></main>
+            <div class="close" id="menu-close">
+              <img src="assets/images/general/close.svg" alt="Clos Icon" />
+            </div>
 
-      <footer id="footer">
-        <div class="arrow-next-con">
-          <button id="arrow-next" class="next-btn" type="next-btn">
-            <img src="assets/images/general/arrow-next.png" alt="Arrow Next" />
-          </button>
-        </div>
-
-        <div class="tip-con">
-          <div class="group-popup" id="popup">
-            <div class="overlay"></div>
-            <div class="content">
-              <div class="desc">
-                <span>?</span>
-                <p id="main-page-tip" lcz="main-page-tip-text"></p>
-                <p id="game-tip" lcz="game-tip-text"></p>
-                <div id="close-btn" class="close-btn">
-                  <button type="btn">
-                    <img
-                      src="assets/images/general/cross-icon.png"
-                      alt="Cross Icon"
-                    />
-                  </button>
-                </div>
-              </div>
+            <div class="menu_list">
+              <ul>
+                <li data-menu="1" class="menu locked">
+                  <div class="title">
+                    <span lcz="menu1"></span>
+                  </div>
+                </li>
+                <li data-menu="2" class="menu locked">
+                  <div class="title">
+                    <span lcz="menu2"></span>
+                  </div>
+                </li>
+                <li data-menu="3" class="menu locked">
+                  <div class="title">
+                    <span lcz="menu3"></span>
+                  </div>
+                </li>
+                <li data-menu="4" class="menu locked">
+                  <div class="title">
+                    <span lcz="menu4"></span>
+                  </div>
+                </li>
+                <li data-menu="5" class="menu locked">
+                  <div class="title">
+                    <span lcz="menu5"></span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-          <button id="tip-btn" class="tip-btn" type="button">?</button>
+        </div>
+        <nav class="nav">
+          <ul class="nav__wrap">
+            <li class="nav__ham" id="menu">
+              <img
+                class="theme-black"
+                src="assets/images/general/black-burger.svg"
+                alt="Burger Icon"
+              />
+            </li>
+            <li class="nav__title">
+              <img
+                class="theme-black"
+                src="assets/images/general/logo-black.svg"
+                alt="Montblanc Logo"
+              />
+            </li>
+            <li class="nav__exit" id="exit">
+              <img
+                class="theme-black"
+                src="assets/images/general/black-home.svg"
+                alt="Home Icon"
+              />
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main id="content"></main>
+      <footer id="footer">
+        <div class="progress-bar">
+          <div class="flip flip-prev">
+            <div class="flip__inner">
+              <img
+                class="theme-black"
+                src="assets/images/general/flip-prev.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress__bar">
+              <div class="bar-inside"></div>
+            </div>
+          </div>
+          <div class="flip flip-next">
+            <div class="flip__inner">
+              <img
+                class="main-flip-next theme-black"
+                src="assets/images/general/flip-next.svg"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
       </footer>
     </div>
