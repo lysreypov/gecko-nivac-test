@@ -1,0 +1,94 @@
+#chap5-content1-page {
+  .chap5-content1-page {
+    position: relative;
+    padding: rem(50) rem(20) rem(0) rem(20);
+    @include fill-area;
+    @include flex-column;
+    justify-content: space-between;
+
+    &.hide {
+      display: none;
+    }
+
+    .group-content {
+      .quote-anim {
+        display: none;
+      }
+      .quote-box {
+        padding: rem(0) rem(100);
+        box-sizing: border-box;
+        width: 100%;
+        @include bg-con(
+          "../../assets/images/pages/chap2-content1-page/brush.png"
+        );
+        background-size: 100% 100%;
+        height: rem(600);
+        margin-bottom: rem(80);
+        @include flex-column-center;
+
+        p {
+          font-family: $northwell-font;
+          font-size: rem(120);
+          font-weight: $medium;
+          line-height: rem(130);
+        }
+      }
+      .quotation {
+        position: absolute;
+        z-index: 2;
+
+        span {
+          font-family: $northwell-font;
+          font-size: rem(800);
+          line-height: rem(0);
+        }
+      }
+
+      .quotation-left {
+        transform: scaleX(-1) rotate(180deg);
+        top: rem(-250);
+        left: rem(50);
+      }
+      .quotation-right {
+        transform: rotate(0deg);
+        top: rem(900);
+        right: rem(50);
+      }
+
+      .chap-desc {
+        display: none;
+        padding: rem(0) rem(60);
+        font-size: rem(42);
+      }
+    }
+
+    .group-bottom {
+      @include fill-area;
+      .instruction {
+        display: none;
+        font-size: rem(35);
+        font-style: italic;
+        color: $text-grey;
+      }
+
+      .group-button {
+        display: none;
+        margin-top: rem(40);
+        height: rem(500);
+
+        button {
+          max-width: rem(1000);
+          min-width: rem(1000);
+          min-height: rem(180);
+          background-size: 90% 100%;
+        }
+
+        .btn-individual {
+          margin-bottom: rem(20);
+          @include bg-con("../../assets/images/general/button1.png");
+          background-color: unset;
+        }
+      }
+    }
+  }
+}

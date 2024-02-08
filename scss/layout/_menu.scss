@@ -33,7 +33,7 @@ $menuHeader: rem(242);
       }
     }
 
-    .menu_list {
+    .menu-list {
       height: calc(100% - #{$menuHeader});
       overflow: auto;
 
@@ -100,16 +100,6 @@ $menuHeader: rem(242);
 
             .title {
               font-weight: $bold;
-            }
-          }
-
-          &.none {
-            display: none;
-          }
-
-          &:last-child {
-            &:after {
-              display: none;
             }
           }
         }

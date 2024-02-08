@@ -1,0 +1,130 @@
+#closing-page-2 {
+  .closing-page-2 {
+    overflow: auto;
+    position: relative;
+    // padding: rem(0) rem(20);
+    @include fill-area;
+
+    .group-title {
+      position: relative;
+      // display: none;
+
+      .video {
+        @include fill-area;
+        margin-top: rem(-400);
+        background: none;
+
+        &__content {
+          @include fill-area;
+          object-fit: cover;
+          background: none;
+        }
+      }
+    }
+
+    .brush {
+      position: absolute;
+      top: 24%;
+      width: 95%;
+      @include bg-cov("../../assets/images/pages/welcome-page-2/brush.png");
+      background-size: 100% 100%;
+      margin-left: rem(20);
+      margin-bottom: rem(20);
+      height: rem(380);
+      @include flex-column-center;
+
+      h1 {
+        display: none;
+        font-size: rem(150);
+        font-family: $northwell-font;
+        line-height: 0;
+        font-weight: $light;
+      }
+
+      .bao {
+        display: none;
+        font-size: rem(60);
+        margin-top: rem(-12);
+        font-weight: $bold;
+        font-style: normal;
+        line-height: rem(20);
+      }
+
+      p {
+        display: none;
+        font-size: rem(38);
+      }
+    }
+
+    .group-content {
+      display: none;
+      padding-bottom: rem(200);
+      box-sizing: border-box;
+
+      .close-desc {
+        padding: rem(10) rem(50);
+        font-size: rem(42);
+      }
+
+      .button {
+        width: 100%;
+        height: rem(200);
+
+        .btn-download {
+          max-width: 90%;
+          max-height: 100%;
+          min-height: 100%;
+          background-size: 100% 100%;
+          padding: rem(0) rem(100);
+
+          @include bg-con("../../assets/images/general/button1.png");
+          background-color: unset;
+        }
+      }
+    }
+  }
+
+  #popup-pdf {
+    @include fill-area;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 18;
+    display: none;
+    overflow-y: auto;
+
+    .popup__close {
+      width: rem(30);
+      height: auto;
+      cursor: pointer;
+      position: absolute;
+      top: rem(20);
+      right: rem(20);
+    }
+
+    .popup__wrapper {
+      @include fill-area;
+      padding: 0;
+
+      .pdf-viewer {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: scroll !important;
+        @include fill-area;
+
+        iframe {
+          @include fill-area;
+        }
+      }
+    }
+
+    .x-icon {
+      cursor: pointer;
+      position: absolute;
+      top: rem(120);
+      right: rem(30);
+      width: rem(50);
+      height: rem(50);
+    }
+  }
+}

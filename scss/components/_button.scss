@@ -37,7 +37,6 @@ $color: $black;
   }
 
   &.locked {
-    @include bg-cov("../../assets/images/general/button-grey.png");
     opacity: 0.8;
     pointer-events: none;
   }

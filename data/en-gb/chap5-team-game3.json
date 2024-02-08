@@ -1,0 +1,218 @@
+[
+  {
+    "key": "title-main-4",
+    "data": {
+      "value": "Client Obsession",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "instruction",
+    "data": {
+      "value": "Slide to the left or right to select a sentence describing your most likely behaviour.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-question-1",
+    "data": {
+      "value": "Develop a client-centric organisational focus",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques1-ans1",
+    "data": {
+      "value": "I miss the opportunity to focus the team on exploring the client's needs (example: do not follow up or push a creation over client culture, ...).",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques1-ans2",
+    "data": {
+      "value": "I anticipate clients’ tendencies, trends and patterns and invite the team to integrate them into any decision.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques1-ans3",
+    "data": {
+      "value": "I develop an organisation that places client needs and interest at the heart of any strategy.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques1-ans4",
+    "data": {
+      "value": "I do not know.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-question-2",
+    "data": {
+      "value": "Promote development of unique client experiences",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques2-ans1",
+    "data": {
+      "value": "I do not rethink or adapt the clients' experiences. I miss the opportunity to measure the Maison's reputation to shape new experiences.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques2-ans2",
+    "data": {
+      "value": "I promote the development of unique experiences and gain clients’ trust.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques2-ans3",
+    "data": {
+      "value": "I encourage the team to develop a strong client focus and credibility to tailor future solutions.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques2-ans4",
+    "data": {
+      "value": "I do not know.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-question-3",
+    "data": {
+      "value": "Foster a sense of pride for the maison's heritage and expertise in craftsmanship",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques3-ans1",
+    "data": {
+      "value": "I might be negative or critical, transmitting a poor sense of pride in the Maison's heritage and expertise in craftsmanship.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques3-ans2",
+    "data": {
+      "value": "I breath the Maison and transmit a strong sense of belonging and pride. I tell the team about the foundational heritage stories and remind why we can be proud.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques3-ans3",
+    "data": {
+      "value": "I promote the co-development, with clients, of the identity of the Maison.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques3-ans4",
+    "data": {
+      "value": "I do not know",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-question-4",
+    "data": {
+      "value": "Keep focus and ensure client promises are delivered",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques4-ans1",
+    "data": {
+      "value": "I might not follow up and/or remind others what was promised to clients and must be delivered. I do not anticipate the reputational issues when client promises and engagement are not respected.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques4-ans2",
+    "data": {
+      "value": "I ask the teams what barriers need to be removed to deliver what was promised to the client and/or promote a ‘walk the talk’ attitude.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques4-ans3",
+    "data": {
+      "value": "I create conditions to enter into dialogue with the client, to jointly shape the expectations and raise their satisfaction.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques4-ans4",
+    "data": {
+      "value": "I do not know.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-question-5",
+    "data": {
+      "value": "Foster a data-driven culture to reinforce intuition",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques5-ans1",
+    "data": {
+      "value": "I do not pinpoint problems and opportunities from data, trends and patterns, missing the opportunity to redirect the team's activity.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques5-ans2",
+    "data": {
+      "value": "I leverage quantitative and qualitative data to identify opportunities, redirect efforts and help the team to discern and make decisions.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques5-ans3",
+    "data": {
+      "value": "I foster a culture where decision making leverages a combination of intuition, experience and solid data rationale.",
+      "validated": false,
+      "comment": ""
+    }
+  },
+  {
+    "key": "game3-ques5-ans4",
+    "data": {
+      "value": "I do not know.",
+      "validated": false,
+      "comment": ""
+    }
+  }
+]

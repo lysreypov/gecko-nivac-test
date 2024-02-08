@@ -8,6 +8,7 @@
       z-index: 1;
       padding-bottom: rem(170);
       box-sizing: border-box;
+      overflow: hidden;
       @include fill-area;
 
       .content-illus {
@@ -66,6 +67,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
+    z-index: 1;
     bottom: rem(76);
     left: 50%;
     transform: translate(-50%);

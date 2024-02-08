@@ -1,0 +1,109 @@
+#chap2-content3-page {
+  .chap2-content3-page {
+    @include flex-column;
+    @include fill-area;
+
+    .group-content {
+      p {
+        display: none;
+        font-size: rem(40);
+      }
+
+      .question {
+        font-weight: $bold;
+      }
+
+      .chap-desc {
+        padding: rem(0) rem(80);
+      }
+    }
+
+    .group-items {
+      @include flex-column;
+      @include fill-area;
+      gap: rem(20);
+      padding: rem(0) rem(50);
+      box-sizing: border-box;
+
+      &.hide {
+        display: none;
+      }
+
+      .item {
+        position: relative;
+        padding: rem(0) rem(40);
+        box-sizing: border-box;
+        width: 100%;
+        height: rem(600);
+        background-color: 100% 100%;
+        @include flex-column;
+
+        .item-content {
+          @include flex-row;
+          align-items: center;
+          gap: rem(50);
+          padding-top: rem(50);
+
+          p {
+            font-weight: $bold;
+            font-size: rem(65);
+            text-transform: uppercase;
+          }
+
+          .text-point3 {
+            text-align: left;
+          }
+
+          .text-point4 {
+            text-align: right;
+            padding-left: rem(300);
+          }
+
+          span {
+            font-family: $northwell-font;
+            font-size: rem(200);
+            line-height: 0;
+            margin-top: rem(100);
+          }
+        }
+
+        .item-img {
+          position: absolute;
+
+          bottom: 0;
+          cursor: pointer;
+          img {
+            @include fill-area;
+            object-fit: contain;
+          }
+        }
+
+        .item1-img {
+          height: rem(320);
+          right: rem(100);
+        }
+
+        .item2-img {
+          top: rem(140);
+          height: rem(500);
+        }
+      }
+
+      .item1 {
+        @include bg-con(
+          "../../assets/images/pages/chap2-content2-page/brush1.png"
+        );
+      }
+
+      .item2 {
+        @include bg-con(
+          "../../assets/images/pages/chap2-content2-page/brush2.png"
+        );
+
+        :first-child {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

@@ -141,7 +141,10 @@
     margin-bottom: rem(20);
     height: rem(380);
   }
+}
 
+#welcome-page-2,
+#chap5-content1-page {
   .wait-video {
     position: absolute;
     @include fill-area;
@@ -160,6 +163,7 @@
 
       button {
         text-transform: uppercase;
+        text-decoration: underline;
         font-family: $montblanc-type-font;
         font-size: rem(35);
         color: $white;
@@ -178,6 +182,16 @@
         height: rem(45);
         filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%)
           hue-rotate(346deg) brightness(109%) contrast(100%);
+      }
+    }
+  }
+}
+
+#chap5-content1-page {
+  .wait-video {
+    .skip-video {
+      img {
+        top: rem(20);
       }
     }
   }

@@ -1,0 +1,219 @@
+[
+    {
+      "key": "title-main-2",
+      "data": {
+        "value": "Collaboration",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "instruction",
+      "data": {
+        "value": "Slide to the left or right to select a sentence describing your most likely behaviour.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-question-1",
+      "data": {
+        "value": "Define the collaboration principles and governance",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques1-ans1",
+      "data": {
+        "value": "I miss the opportunity to clarify with the team the ways of working and/or let conflicts disable the collaboration.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques1-ans2",
+      "data": {
+        "value": "I meet with the team before starting the execution of projects/tasks to help them and define how they will work together. I set the principles of collaboration.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques1-ans3",
+      "data": {
+        "value": "I engage team members around a common purpose and a clear governance. I anticipate potential areas of tension and define the process to overcome them when they arise.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques1-ans4",
+      "data": {
+        "value": "I do not know.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-question-2",
+      "data": {
+        "value": "Foster a culture where collective intelligence takes precedence over individual ones",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques2-ans1",
+      "data": {
+        "value": "I value individual approaches and opportunistic decisions that drive immediate results to the detriment of a collective long-lasting success.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques2-ans2",
+      "data": {
+        "value": "I praise collective success. I encourage people to place their own interest after collective interest (team, Maison).",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques2-ans3",
+      "data": {
+        "value": "I foster a culture that promotes collective intelligence and anticipate how collaboration enables the company's overall impact on its ecosystem.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques2-ans4",
+      "data": {
+        "value": "I do not know.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-question-3",
+      "data": {
+        "value": "Remove barries to collaboration",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques3-ans1",
+      "data": {
+        "value": "I procrastinate conflict management, missing the opportunity to remove the barriers to collaboration, and/or let organisational conflicts become people conflicts.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques3-ans2",
+      "data": {
+        "value": "When facing collaboration obstacles, I focus the team on what can be done differently in the future rather than speaking about the past.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques3-ans3",
+      "data": {
+        "value": "I anticipate and remove the systemic barriers to collaboration (example: silos across departments and teams).",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques3-ans4",
+      "data": {
+        "value": "I do not know",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-question-4",
+      "data": {
+        "value": "Foster a feedback culture",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques4-ans1",
+      "data": {
+        "value": "I miss the opportunity to redirect people's complaints/gossip to the right incumbent and/or allow triangulation and/or procrastinate feedback.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques4-ans2",
+      "data": {
+        "value": "I invite people to deliver sincere, selective and specific feedback.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques4-ans3",
+      "data": {
+        "value": "I foster a culture where feedback is a foundation to develop an environment of respect and truth.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques4-ans4",
+      "data": {
+        "value": "I do not know.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-question-5",
+      "data": {
+        "value": "Promote diversity and its value",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques5-ans1",
+      "data": {
+        "value": "I might judge others and/or place them in a ‘box’ and/or allow stereotyping and/or discriminative statements to take over in conversations.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques5-ans2",
+      "data": {
+        "value": "I promote diversity of points of view and personalities. I work to reduce the gap between perception and reality, intention and reputation.",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques5-ans3",
+      "data": {
+        "value": "I foster a culture of diversity. I welcome and integrate people with different perspectives. I am able to challenge one's own point of view (example: people who tell you what you need to hear, not what you want to hear).",
+        "validated": false,
+        "comment": ""
+      }
+    },
+    {
+      "key": "game1-ques5-ans4",
+      "data": {
+        "value": "I do not know.",
+        "validated": false,
+        "comment": ""
+      }
+    }
+  ]
+  

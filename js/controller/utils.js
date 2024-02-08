@@ -29,3 +29,46 @@ function GetURLParameter(sParam) {
     }
   }
 }
+
+function checkActiveChap() {
+  var lastIndexUnlock = -1;
+
+  for (var i = chapStatus.length - 1; i >= 0; i--) {
+    if (chapStatus[i].isUnlock) {
+      lastIndexUnlock = i;
+      break;
+    }
+  }
+
+  checkUnlock = lastIndexUnlock + 1;
+}
+
+function unlockChapter(no) {
+  for (var i = 0; i < no; i++) {
+    chapStatus[i].isUnlock = true;
+  }
+}
+
+function completeChapter(no) {
+  for (var i = 0; i < no; i++) {
+    chapStatus[i].isComplete = true;
+  }
+}
+
+$.fn.offClick = function () {
+  $(this).css("pointerEvents", "none");
+};
+
+$.fn.onClick = function () {
+  $(this).css({
+    pointerEvents: "auto",
+    cursor: "pointer",
+  });
+};
+
+// Preload Imgage
+$.preloadImages = function () {
+  for (var i = 0; i < arguments.length; i++) {
+    $("<img />").attr("src", arguments[i]);
+  }
+};

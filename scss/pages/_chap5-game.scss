@@ -1,0 +1,173 @@
+#chap5-individual-game1,
+#chap5-individual-game2,
+#chap5-individual-game3,
+#chap5-team-game1,
+#chap5-team-game2,
+#chap5-team-game3 {
+  .chap5-individual-game1,
+  .chap5-individual-game2,
+  .chap5-individual-game3,
+  .chap5-team-game1,
+  .chap5-team-game2,
+  .chap5-team-game3 {
+    padding: rem(20) rem(0);
+    .group-content {
+      display: none;
+      padding: rem(0) rem(80);
+
+      .brush {
+        @include flex-column-center;
+        width: rem(500);
+        background-size: 100% 100%;
+        height: rem(400);
+        @include bg-con("../../assets/images/pages/chap5-game/brush.png");
+      }
+
+      p {
+        font-family: $northwell-font;
+        font-size: rem(100);
+        transform: rotate(-10deg);
+      }
+
+      .img-box {
+        img {
+          position: absolute;
+          z-index: 0;
+          top: rem(20);
+          right: rem(140);
+          width: rem(400);
+          height: rem(400);
+          object-fit: contain;
+        }
+      }
+    }
+
+    .instruction-box {
+      padding: rem(0) rem(80);
+      margin-top: rem(-20);
+      .instruction {
+        display: none;
+        font-size: rem(35);
+        font-style: italic;
+        color: $text-grey;
+      }
+    }
+
+    .group-quiz {
+      display: none;
+      margin-top: rem(20);
+      .game-round {
+        span {
+          font-size: rem(75);
+        }
+
+        small {
+          font-size: rem(38);
+        }
+      }
+    }
+
+    .game-questions {
+      margin-top: rem(-40);
+      padding: rem(0) rem(50);
+      height: rem(200);
+      .game-question {
+        font-size: rem(42);
+        text-transform: uppercase;
+        font-weight: $bold;
+      }
+    }
+
+    .swiper {
+      display: none;
+      width: 100%;
+      height: rem(700);
+      margin-top: rem(-100);
+      background-color: unset;
+    }
+
+    .swiper-slide {
+      width: 100%;
+      height: 100%;
+      background-color: unset;
+    }
+
+    .swiper-content {
+      padding: rem(0) rem(60);
+      width: 100%;
+      height: 100%;
+    }
+
+    .inside-content {
+      width: 100%;
+      height: 100%;
+
+      .brush {
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        @include bg-con("../../assets/images/general/stain-yellow.png");
+        @include flex-column-center;
+        transform: scale(-1);
+
+        p {
+          font-size: rem(40);
+          transform: scale(-1);
+        }
+      }
+    }
+
+    .swiper-group-pagination {
+      height: rem(60);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: $black;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $yellow;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: rem(70);
+      height: rem(70);
+      transform: translate(0%, -50%);
+      margin-top: unset;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &::after {
+        content: unset;
+      }
+
+      img {
+        @include fill-area;
+        object-fit: contain;
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0;
+      }
+    }
+
+    .swiper-button-prev {
+      left: 0;
+    }
+    .swiper-button-next {
+      right: 0;
+    }
+
+    .btn-validate {
+      display: none;
+    }
+  }
+}

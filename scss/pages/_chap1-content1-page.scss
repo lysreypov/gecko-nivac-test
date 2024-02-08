@@ -1,0 +1,199 @@
+#chap1-content1-page {
+  .chap1-content1-page {
+    @include flex-column;
+
+    .group-items {
+      @include flex-column;
+      gap: rem(20);
+      padding: rem(0) rem(20);
+      box-sizing: border-box;
+
+      &.hide {
+        display: none;
+      }
+
+      .item {
+        @include flex-row;
+
+        .item1-img,
+        .item2-img,
+        .item3-img {
+          cursor: pointer;
+          img {
+            @include fill-area;
+            object-fit: contain;
+          }
+        }
+
+        .item1-img {
+          width: rem(350);
+        }
+
+        .item2-img {
+          width: rem(450);
+          margin-right: rem(50);
+        }
+
+        .item3-img {
+          width: rem(300);
+          margin-left: rem(40);
+        }
+
+        .item1-desc,
+        .item2-desc,
+        .item3-desc {
+          width: 70%;
+          p {
+            font-size: rem(42);
+            font-weight: $bold;
+          }
+        }
+
+        .item1-desc {
+          width: 60%;
+          padding: rem(0) rem(20);
+        }
+
+        .item2-desc {
+          width: 60%;
+          padding-left: rem(150);
+        }
+        .item3-desc {
+          padding-right: rem(100);
+        }
+      }
+      .item-1,
+      .item-2,
+      .item-3 {
+        width: 100%;
+        @include flex-center;
+        background-size: 100% 100%;
+      }
+
+      .item-1 {
+        margin-top: rem(20);
+        height: rem(500);
+        @include bg-con(
+          "../../assets/images/pages/chap1-content1-page/brush-item1.png"
+        );
+      }
+      .item-2 {
+        height: rem(350);
+        @include bg-con(
+          "../../assets/images/pages/chap1-content1-page/brush-item2.png"
+        );
+      }
+      .item-3 {
+        margin-top: rem(40);
+        height: rem(370);
+        @include bg-con(
+          "../../assets/images/pages/chap1-content1-page/brush-item3.png"
+        );
+      }
+    }
+  }
+}
+
+#chap1-content1-page,
+#chap1-content2-page,
+#chap2-content2-page,
+#chap2-content3-page,
+#chap3-content2-page,
+#chap3-content3-page,
+#chap4-content2-page,
+#chap5-content1-page {
+  .chap1-content1-page,
+  .chap1-content2-page,
+  .chap2-content2-page,
+  .chap2-content3-page,
+  .chap3-content2-page,
+  .chap3-content3-page,
+  .chap4-content2-page,
+  .chap5-content1-page {
+    .group-content {
+      .title {
+        display: none;
+        font-size: rem(48);
+        text-transform: uppercase;
+      }
+      .instruction {
+        display: none;
+        font-size: rem(35);
+        font-style: italic;
+        color: $text-grey;
+      }
+    }
+  }
+}
+
+#chap1-content1-popup1,
+#chap1-content1-popup2,
+#chap1-content1-popup3 {
+  @include fill-area;
+  padding: rem(0) rem(20);
+  box-sizing: border-box;
+  .content-img {
+    margin-top: rem(40);
+    margin-bottom: rem(32);
+    width: 100%;
+    background-size: 100% 100%;
+    @include flex-column-center;
+
+    .popup-img {
+      @include fill-area;
+      object-fit: contain;
+    }
+  }
+
+  .text-detail {
+    padding: rem(4) rem(60) rem(20) rem(60);
+    p {
+      font-size: rem(40);
+      padding-bottom: rem(20);
+    }
+
+    :nth-child(4) {
+      padding: rem(0) rem(60);
+    }
+  }
+}
+
+#chap1-content1-popup1 {
+  overflow-y: auto;
+  .content-img {
+    height: rem(900);
+    @include bg-con(
+      "../../assets/images/pages/chap1-content1-page/brush-item1.png"
+    );
+  }
+}
+
+#chap1-content1-popup2 {
+  overflow-y: auto;
+  .content-img {
+    position: relative;
+    height: rem(600);
+    top: rem(100);
+    @include bg-con(
+      "../../assets/images/pages/chap1-content1-page/brush-item2.png"
+    );
+
+    .popup-img {
+      position: absolute;
+      top: rem(-100);
+      height: rem(520);
+      object-fit: contain;
+    }
+  }
+}
+
+#chap1-content1-popup3 {
+  overflow-y: hidden;
+  .content-img {
+    height: rem(1200);
+  }
+
+  .text-detail {
+    margin-top: rem(80);
+  }
+}

@@ -1,4 +1,4 @@
-$nav-mobile: rem(140);
+$nav-mobile: rem(200);
 
 #header {
   display: none;
@@ -67,6 +67,23 @@ $nav-mobile: rem(140);
       text-transform: uppercase;
       font-size: rem(37);
       margin-top: rem(5);
+    }
+  }
+
+  &__page {
+    margin-top: rem(20);
+    display: none;
+
+    span {
+      font-size: rem(50);
+      text-transform: uppercase;
+    }
+  }
+
+  &__behaviour {
+    span {
+      font-size: rem(38);
+      text-transform: uppercase;
     }
   }
 }

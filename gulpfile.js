@@ -174,6 +174,12 @@ function uglifyLibrary() {
       "js/libs/jquery.ui.touch-punch.min.js",
       "js/libs/jquery.mousewheel.min.js",
       "js/libs/gsap.min.js",
+      "js/libs/swiper.min.js",
+      "js/libs/download.min.js",
+      "js/libs/fontkit.umd.min.js",
+      "js/libs/pdf-lib.min.js",
+      "js/libs/pdf-lib.min.js.map",
+      "js/libs/polyfill.min.js",
     ])
     .pipe(
       babel({
@@ -226,7 +232,7 @@ function clean() {
 }
 
 async function moveFolder() {
-  const folderName = ["assets/videos", "assets/pdf"];
+  const folderName = ["assets/videos", "assets/pdf", "assets/gif"];
   await folderName.forEach((folder) => {
     gulp
       .src("./" + folder + "/**/**/*", { base: "./" })

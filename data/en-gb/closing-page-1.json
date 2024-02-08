@@ -1,0 +1,26 @@
+[
+  {
+    "key": "text-quote",
+    "data": {
+      "value": "A model that makes culture visible.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc1",
+    "data": {
+      "value": "This Competency Model is part of your Performance Meeting including behaviour-based feedback and development measures.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc2",
+    "data": {
+      "value": "As a Montblanc Ambassador, we need you to bring these cultural accelerators to life through the behaviours! This self-evaluation helps you to identify your strengths and areas to improve where you can shine even brighter, enabling you to leave a mark with Montblanc.",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "key": "chap1-desc1",
+    "data": {
+      "value": "The Manifesto serves as the North Star for everyone’s mindset, ambition, passion and personal behaviour to fully support and foster the transformation of our Maison.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "chap1-desc2",
+    "data": {
+      "value": "To make our transformation successful, <br>we will live a culture built on:",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-instruct",
+    "data": {
+      "value": "Slide to discover each point.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-title-point1",
+    "data": {
+      "value": "Collaboration",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc-point1",
+    "data": {
+      "value": "The success of the community is above ​the success of each individual.​",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-title-point2",
+    "data": {
+      "value": "Empowerment",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc-point2",
+    "data": {
+      "value": "We enable our colleagues to take responsibility and to act.​",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-title-point3",
+    "data": {
+      "value": "Client Obsession",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc-point3",
+    "data": {
+      "value": "Our clients are at the heart of ​everything we do.​",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

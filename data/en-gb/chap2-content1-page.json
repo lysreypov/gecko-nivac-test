@@ -1,0 +1,18 @@
+[
+  {
+    "key": "text-quote",
+    "data": {
+      "value": "The success of the community is more important than the success of the individual.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc",
+    "data": {
+      "value": "At Montblanc, diversity is a significant driver of our success.",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

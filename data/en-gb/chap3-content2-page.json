@@ -1,0 +1,42 @@
+[
+  {
+    "key": "text-question",
+    "data": {
+      "value": "What does it look like at Montblanc?​",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "chap-desc",
+    "data": {
+      "value": "Communication is the key to playing that valuable role in the success of the company. By acquiring insights into the Maison’s direction, we can make <br>informed decisions. Knowledge is therefore the foundation of empowerment.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-instruction",
+    "data": {
+      "value": "Click each image to learn more.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-point1",
+    "data": {
+      "value": "Competency Model Training",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-point2",
+    "data": {
+      "value": "My Performance Journey​",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

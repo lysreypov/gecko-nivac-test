@@ -12,7 +12,7 @@ function animationHandle() {
     $(".wait-video").removeClass("hide");
 
     setTimeout(() => {
-      $(".skip-video").fadeIn(500);
+      $(".skip-video").fadeIn(animationDuration);
     }, 700);
 
     myVideo = new Video($("#welcome-video1"), {
@@ -27,7 +27,7 @@ function animationHandle() {
           $(".time, .text-time, .fade3").hide();
         }, 400);
         setTimeout(() => {
-          $(".welcome-text").show().ins();
+          $(".welcome-text").show().insOnce();
         }, 700);
         setTimeout(() => {
           $(".content1-desc").fadeIn(animationDuration);
@@ -61,6 +61,7 @@ function gameHandle() {
   });
 
   $(".btn-start").one("click", () => {
+    unlockChapter(1);
     _goto("main-page-1");
   });
 }

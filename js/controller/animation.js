@@ -1,14 +1,17 @@
 $.fn.clearAnim = function (elem) {
   $(this).removeClass("animate");
   gsap.killTweensOf($(this));
-  if (typeof elem == "undefined") {
-    gsap.set($(this), {
-      clearProps: "all",
-    });
-  } else {
-    gsap.set($(this), {
-      clearProps: elem,
-    });
+
+  if ($(this).get(0)) {
+    if (typeof elem == "undefined") {
+      gsap.set($(this), {
+        clearProps: "all",
+      });
+    } else {
+      gsap.set($(this), {
+        clearProps: elem,
+      });
+    }
   }
 };
 
@@ -75,26 +78,99 @@ $.fn.pulseTwices = function (delay, duration) {
 $.fn.ins = function (delay) {
   if (typeof delay === "undefined") delay = 0;
 
-  gsap.fromTo(
-    $(this),
-    0.4,
-    {
-      x: "-120%",
-      alpha: 0,
-    },
-    {
-      x: 0,
-      alpha: 1,
-      duration: 0.7,
-      ease: Power1.linear,
-    }
-  );
+  if ($(this).get(0)) {
+    gsap.fromTo(
+      $(this),
+      0.4,
+      {
+        x: "-120%",
+        alpha: 0,
+      },
+      {
+        x: 0,
+        alpha: 1,
+        duration: 0.7,
+        ease: Power1.linear,
+      }
+    );
 
-  gsap.to($(this), 0.25, {
-    alpha: 0.3,
-    yoyo: true,
-    repeat: 1,
-    ease: Power0.easeOut,
-    delay: delay + 0.5,
-  });
+    gsap.to($(this), 0.25, {
+      alpha: 0.3,
+      yoyo: true,
+      repeat: 3,
+      ease: Power0.easeOut,
+      delay: delay + 0.5,
+    });
+  }
+};
+
+$.fn.insOnce = function (delay) {
+  if (typeof delay === "undefined") delay = 0;
+
+  if ($(this).get(0)) {
+    gsap.fromTo(
+      $(this),
+      0.4,
+      {
+        x: "-120%",
+        alpha: 0,
+      },
+      {
+        x: 0,
+        alpha: 1,
+        duration: 0.7,
+        ease: Power1.linear,
+      }
+    );
+
+    gsap.to($(this), 0.25, {
+      alpha: 0.3,
+      yoyo: true,
+      repeat: 1,
+      ease: Power0.easeOut,
+      delay: delay + 0.5,
+    });
+  }
+};
+
+$.fn.floatLeft = function (delay) {
+  if (typeof delay === "undefined") delay = 0;
+
+  if ($(this).get(0)) {
+    gsap.fromTo(
+      $(this),
+      1,
+      {
+        x: "-120%",
+        alpha: 0,
+      },
+      {
+        x: 0,
+        alpha: 1,
+        duration: 0.7,
+        ease: Power1.linear,
+      }
+    );
+  }
+};
+
+$.fn.floatRight = function (delay) {
+  if (typeof delay === "undefined") delay = 0;
+
+  if ($(this).get(0)) {
+    gsap.fromTo(
+      $(this),
+      1,
+      {
+        x: "120%",
+        alpha: 0,
+      },
+      {
+        x: 0,
+        alpha: 1,
+        duration: 0.7,
+        ease: Power1.linear,
+      }
+    );
+  }
 };

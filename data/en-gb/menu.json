@@ -16,6 +16,14 @@
     }
   },
   {
+    "key": "menu-themenifesto",
+    "data": {
+      "value": "The Manifesto",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
     "key": "menu2",
     "data": {
       "value": "Collaboration",
@@ -43,6 +51,22 @@
     "key": "menu5",
     "data": {
       "value": "Self Evaluation",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "indiv-behaviour",
+    "data": {
+      "value": "Individual Collaboration",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "team-behaviour",
+    "data": {
+      "value": "Leader with a team",
       "validated": true,
       "comment": ""
     }

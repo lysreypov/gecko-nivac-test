@@ -10,7 +10,7 @@
   {
     "key": "text-skip",
     "data": {
-      "value": "Skip video",
+      "value": "Skip the video",
       "validated": true,
       "comment": ""
     }
@@ -27,6 +27,22 @@
     "key": "text-rediscover",
     "data": {
       "value": "Rediscover",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-validate",
+    "data": {
+      "value": "Validate",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-download",
+    "data": {
+      "value": "Download the competency model table",
       "validated": true,
       "comment": ""
     }

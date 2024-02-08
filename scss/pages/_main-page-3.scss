@@ -8,6 +8,7 @@
       z-index: 2;
       padding-bottom: rem(170);
       box-sizing: border-box;
+      overflow: hidden;
       @include fill-area;
 
       .content-illus {
@@ -20,7 +21,7 @@
 
         img {
           @include fill-area;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
       .content-elem {

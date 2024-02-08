@@ -5,6 +5,7 @@ $footerHeight: rem(120);
   height: $footerHeight;
   width: 100%;
   position: absolute;
+  z-index: 2;
   bottom: 0;
 }
 
@@ -47,20 +48,21 @@ $footerHeight: rem(120);
       left: auto;
       right: auto;
       box-sizing: content-box;
+      background: none;
+      border: none;
+      padding: 0;
 
       &.locked {
         opacity: 0;
+      }
+
+      &.hide {
+        display: none;
       }
     }
 
     &__inner {
       @include flex-center;
-    }
-
-    &.hide {
-      opacity: 0;
-      pointer-events: none;
-      user-select: none;
     }
   }
 

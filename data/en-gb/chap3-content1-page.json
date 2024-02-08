@@ -1,0 +1,18 @@
+[
+  {
+    "key": "text-quote",
+    "data": {
+      "value": "We enable our colleagues to take responsibility and to act.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc",
+    "data": {
+      "value": "At Montblanc, everyone knows their value for the success of our Maison and takes responsibility for their actions. <br>They are free to share their ideas.",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

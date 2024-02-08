@@ -19,29 +19,49 @@
               <img src="assets/images/general/close.svg" alt="Clos Icon" />
             </div>
 
-            <div class="menu_list">
+            <div class="menu-list">
               <ul>
-                <li data-menu="1" class="menu locked">
+                <li
+                  data-goto="chap1-content1-page"
+                  data-menu="1"
+                  class="menu locked"
+                >
                   <div class="title">
                     <span lcz="menu1"></span>
                   </div>
                 </li>
-                <li data-menu="2" class="menu locked">
+                <li
+                  data-goto="chap2-content1-page"
+                  data-menu="2"
+                  class="menu locked"
+                >
                   <div class="title">
                     <span lcz="menu2"></span>
                   </div>
                 </li>
-                <li data-menu="3" class="menu locked">
+                <li
+                  data-goto="chap3-content1-page"
+                  data-menu="3"
+                  class="menu locked"
+                >
                   <div class="title">
                     <span lcz="menu3"></span>
                   </div>
                 </li>
-                <li data-menu="4" class="menu locked">
+                <li
+                  data-goto="chap4-content1-page"
+                  data-menu="4"
+                  class="menu locked"
+                >
                   <div class="title">
                     <span lcz="menu4"></span>
                   </div>
                 </li>
-                <li data-menu="5" class="menu locked">
+                <li
+                  data-goto="chap5-content1-page"
+                  data-menu="5"
+                  class="menu locked"
+                >
                   <div class="title">
                     <span lcz="menu5"></span>
                   </div>
@@ -65,6 +85,23 @@
                 src="assets/images/general/logo-black.svg"
                 alt="Montblanc Logo"
               />
+              <div class="nav__page name1">
+                <span lcz="menu-themenifesto"></span>
+              </div>
+              <div class="nav__page name2"><span lcz="menu2"></span></div>
+              <div class="nav__page name3"><span lcz="menu3"></span></div>
+              <div class="nav__page name4"><span lcz="menu4"></span></div>
+              <div class="nav__page name5"><span lcz="menu5"></span></div>
+              <div class="nav__behaviour">
+                <span class="indiv-title" lcz="indiv-behaviour"
+                  ></span
+                >
+              </div>
+              <div class="nav__behaviour">
+                <span class="team-title" lcz="team-behaviour"
+                  ></span
+                >
+              </div>
             </li>
             <li class="nav__exit" id="exit">
               <img
@@ -79,33 +116,35 @@
       <main id="content"></main>
       <footer id="footer">
         <div class="progress-bar">
-          <div class="flip flip-prev">
-            <div class="flip__inner">
-              <img
-                class="theme-black"
-                src="assets/images/general/flip-prev.svg"
-                alt=""
-              />
-            </div>
-          </div>
+          <button class="flip flip-prev">
+            <img
+              class="theme-black"
+              src="assets/images/general/flip-prev.svg"
+              alt=""
+            />
+          </button>
           <div class="progress">
             <div class="progress__bar">
               <div class="bar-inside"></div>
             </div>
           </div>
-          <div class="flip flip-next">
-            <div class="flip__inner">
-              <img
-                class="main-flip-next theme-black"
-                src="assets/images/general/flip-next.svg"
-                alt=""
-              />
-            </div>
-          </div>
+          <button class="flip flip-next">
+            <img
+              class="main-flip-next theme-black"
+              src="assets/images/general/flip-next.svg"
+              alt=""
+            />
+          </button>
         </div>
       </footer>
+
+      <component src="templates/components/popup.html"></component>
     </div>
     <script src="dist/js/library.js"></script>
     <script src="dist/js/scripts.js"></script>
+    <!-- PDF Control  -->
+    <script src="js/libs/pdf-lib.min.js"></script>
+    <script src="js/libs/fontkit.umd.min.js"></script>
+    <script src="js/libs/download.min.js"></script>
   </body>
 </html>

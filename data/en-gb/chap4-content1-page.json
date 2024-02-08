@@ -1,0 +1,26 @@
+[
+  {
+    "key": "text-quote",
+    "data": {
+      "value": "Our clients are at the heart of everything we do.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc1",
+    "data": {
+      "value": "At Montblanc, every encounter of the client's experience must be a distinctive and memorable experience.",
+      "validated": true,
+      "comment": ""
+    }
+  },
+  {
+    "key": "text-desc2",
+    "data": {
+      "value": "Everyone contributes to our clients’ satisfaction, and every measure is challenged by reflecting the benefit for the client.",
+      "validated": true,
+      "comment": ""
+    }
+  }
+]

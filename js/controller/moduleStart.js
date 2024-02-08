@@ -1,9 +1,16 @@
 var moduleStart = {
   init: function () {
+    moduleStart.preloadImg();
     moduleStart.setLang();
     moduleStart.setFirstPage();
     moduleStart.calculateScreen();
     moduleStart.callMenu();
+  },
+
+  // Preload general image folder and first page
+  preloadImg: function () {
+    preloadImages("general");
+    preloadImages("welcome-page");
   },
 
   // Set language
@@ -55,7 +62,7 @@ var moduleStart = {
             if (GetURLParameter("_goto")) {
               _goto(GetURLParameter("_goto"));
             } else {
-              _goto("main-page-1");
+              _goto("welcome-page");
             }
           }
         );
