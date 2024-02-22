@@ -1,0 +1,39 @@
+// Convert pixel to rem
+
+@function rem($rem) {
+  @return calc($rem / 16) + rem;
+}
+
+// mixin flex
+@mixin flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-column {
+  @include flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  @include flex;
+  flex-direction: row;
+}
+
+// mixin area & element
+@mixin fill-area {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin user-select-none {
+  // docs: https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}

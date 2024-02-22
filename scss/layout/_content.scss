@@ -1,50 +1,5 @@
-#content,
-.page {
-  @include fill-area;
-}
 #content {
+  @include fill-area;
   flex: 1;
   overflow: hidden;
-  position: relative;
-
-  .page {
-    &.next {
-      background-image: linear-gradient(
-        -90deg,
-        rgba(227, 227, 227, 1) 0%,
-        rgba(247, 247, 247, 1) 18%
-      );
-      transform-origin: center left;
-    }
-
-    &.prev {
-      background-image: linear-gradient(
-        90deg,
-        rgba(227, 227, 227, 1) 0%,
-        rgba(247, 247, 247, 1) 18%
-      );
-      transform-origin: center right;
-      right: 0;
-    }
-  }
-}
-
-.page {
-  position: relative;
-  &.next,
-  &.prev {
-    position: absolute;
-    top: 0;
-    z-index: 10;
-    transition: transform 1.5s linear;
-    transform-origin: center left;
-    transform: rotateX(-15deg) rotateY(180deg);
-  }
-
-  &.prev {
-    transition: transform 1.5s linear;
-    transform-origin: center right;
-    transform: rotateX(-15deg) rotateY(-180deg);
-    right: 0;
-  }
 }

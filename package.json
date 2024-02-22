@@ -1,28 +1,20 @@
 {
   "type": "module",
-  "name": "montblanc-2",
+  "name": "hermes-invitation",
   "version": "1.0.0",
-  "description": "",
+  "description": "HERMES PARFUMS – Seminar invitation",
   "main": "index.html",
   "scripts": {
     "dev": "gulp && gulp watch",
     "build": "gulp build",
-    "preload": "gulp preload",
-    "optimize": "gulp optimize",
-    "make": "gulp make"
+    "watch": "gulp watch"
   },
-  "author": "Nivac",
+  "author": "Gecko",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.8",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
+    "@babel/preset-env": "^7.23.9",
     "browser-sync": "^3.0.2",
-    "deep-list-dir": "^1.4.4",
     "del": "^7.1.0",
-    "dotenv": "^16.3.2",
-    "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-babel": "^8.0.0",
@@ -30,18 +22,15 @@
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
     "gulp-dependents": "^1.2.5",
-    "gulp-footer": "^2.1.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^9.0.0",
-    "gulp-jsonminify": "^1.1.0",
-    "gulp-prettier": "^6.0.0",
-    "gulp-purgecss": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0",
-    "gulp-uglify": "^3.0.2",
     "gulp-wait": "^0.0.2",
-    "sass": "^1.70.0",
-    "shelljs": "^0.8.5"
+    "sass": "^1.71.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.9"
   }
 }

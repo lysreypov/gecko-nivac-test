@@ -23,24 +23,15 @@ import babel from "gulp-babel";
 // image minify dependencies
 import imagemin from "gulp-imagemin";
 
-// json minify
-import jsonMinify from "gulp-jsonminify";
-
 // html minify
 import htmlmin from "gulp-htmlmin";
 
-// JS uglify
-import uglify from "gulp-uglify";
-
 // util dependencies
 import { deleteAsync } from "del";
-import { preload } from "./gulp-preload.js";
-import { generate } from "./gulp-generate.js";
-
-// docs: https://www.npmjs.com/package/dotenv
-import * as dotenv from "dotenv";
+// import { preload } from "./gulp-preload.js";
+// import { generate } from "./gulp-generate.js";
 try {
-  dotenv.config();
+  require("dotenv").config();
 } catch (e) {}
 
 /*  ==================================================
@@ -55,7 +46,7 @@ try {
 
 gulp.task(
   "default",
-  gulp.parallel(minifyDevScss, uglifyLibrary, minifyController)
+  gulp.parallel(minifyDevScss, minifyLibrary, minifyController)
 );
 gulp.task(
   "build",
@@ -63,13 +54,12 @@ gulp.task(
     clean,
     gulp.parallel(
       minifyProdScss,
+      minifyLibrary,
       minifyController,
       minifyHtml,
-      minifyImage,
-      minifyJson,
-      uglifyLibrary,
-      uglifyPages
+      minifyImage
     ),
+    moveFile,
     moveFolder
   )
 );
@@ -83,14 +73,13 @@ gulp.task("watch", function (done) {
 
   // file that need to pack and minify
   gulp.watch("scss/**/*.scss", minifyDevScss);
-  gulp.watch("js/controller/*.js", minifyController);
-  gulp.watch("js/libs/*.js", uglifyLibrary);
-  gulp.watch("assets/images/**/**/**/**/*.{png,jpg,jpeg,gif,svg}", autoPreload);
+  gulp.watch("js/controllers/*.js", minifyController);
+  gulp.watch("js/libs/*.js", minifyLibrary);
+  // gulp.watch("assets/images/**/**/**/**/*.{png,jpg,jpeg,svg}", autoPreload);
 
   // file that only require reload browser
   gulp.watch("*.html").on("change", browserSync.reload);
   gulp.watch("js/pages/*.js").on("change", browserSync.reload);
-  gulp.watch("data/**/*.json").on("change", browserSync.reload);
   gulp.watch("templates/*.html").on("change", browserSync.reload);
 
   done();
@@ -98,18 +87,18 @@ gulp.task("watch", function (done) {
 
 gulp.task("optimize", function () {
   return gulp
-    .src("./assets/images/**/**/**/*", { base: "./" })
+    .src("./assets/images/**/**/**/*{png,jpg,jpeg,svg}", { base: "./" })
     .pipe(imagemin())
     .pipe(gulp.dest("./"));
 });
 
-gulp.task("preload", async function (done) {
-  await preload();
-});
+// gulp.task("preload", async function (done) {
+//   await preload();
+// });
 
-gulp.task("make", function (done) {
-  generate(done);
-});
+// gulp.task("make", function (done) {
+//   generate(done);
+// });
 
 /*  ==================================================
     all minify function
@@ -121,7 +110,7 @@ function minifyDevScss() {
     .pipe(wait(500))
     .pipe(sourcemaps.init())
     .pipe(dependents())
-    .pipe(sass().on("error", sass.logError))
+    .pipe(sass())
     .pipe(autoprefixer())
     .pipe(minifyCss())
     .pipe(sourcemaps.write())
@@ -129,20 +118,24 @@ function minifyDevScss() {
     .pipe(browserSync.stream());
 }
 
+// FIXME: need improvement,
 function minifyProdScss() {
-  return gulp
-    .src("scss/*.scss")
-    .pipe(wait(500))
-    .pipe(sass().on("error", throwError))
-    .pipe(autoprefixer())
-    .pipe(cssnano())
-    .pipe(wait(500))
-    .pipe(gulp.dest("dist/css"));
+  return (
+    gulp
+      .src("scss/*.scss")
+      .pipe(wait(500))
+      .pipe(sass().on("error", throwError))
+      .pipe(sass())
+      .pipe(autoprefixer())
+      .pipe(cssnano())
+      .pipe(wait(500))
+      .pipe(gulp.dest("dist/css"))
+  );
 }
 
 function minifyController() {
   return gulp
-    .src("js/controller/*.js")
+    .src("js/controllers/*.js")
     .pipe(
       babel({
         presets: [["@babel/preset-env", { modules: false }]],
@@ -154,60 +147,40 @@ function minifyController() {
     .pipe(browserSync.stream());
 }
 
-function uglifyPages() {
-  return gulp
-    .src(["js/pages/*.js"], { sourcemaps: true })
-    .pipe(
-      babel({
-        presets: [["@babel/preset-env", { modules: false }]],
-      })
-    )
-    .pipe(uglify())
-    .pipe(gulp.dest("dist/js/pages"));
-}
-
-function uglifyLibrary() {
+function minifyLibrary() {
   return gulp
     .src([
       "js/libs/jquery.min.js",
       "js/libs/jquery-ui.min.js",
-      "js/libs/jquery.ui.touch-punch.min.js",
       "js/libs/jquery.mousewheel.min.js",
+      "js/libs/jquery.ui.touch-punch.min.js",
       "js/libs/gsap.min.js",
-      "js/libs/swiper.min.js",
-      "js/libs/download.min.js",
-      "js/libs/fontkit.umd.min.js",
       "js/libs/pdf-lib.min.js",
       "js/libs/pdf-lib.min.js.map",
-      "js/libs/polyfill.min.js",
+      "js/libs/download.min.js",
+      "js/libs/fontkit.umd.min.js",
     ])
     .pipe(
       babel({
         presets: [["@babel/preset-env", { modules: false }]],
       })
     )
-    .pipe(uglify())
     .pipe(concat("library.js"))
-    .pipe(gulp.dest("dist/js"));
+    .pipe(terser())
+    .pipe(gulp.dest("dist/js"))
+    .pipe(browserSync.stream());
 }
 
 function minifyImage() {
   return gulp
-    .src("./images/**/**/**/*", { base: "./" })
+    .src("./assets/images/**/**/**/*", { base: "./" })
     .pipe(imagemin())
-    .pipe(gulp.dest("./dist"));
-}
-
-function minifyJson() {
-  return gulp
-    .src("./data/**/*.json", { base: "./" })
-    .pipe(jsonMinify())
     .pipe(gulp.dest("./dist"));
 }
 
 function minifyHtml() {
   return gulp
-    .src(["./templates/*.html", "index.html"], {
+    .src(["./templates/**/**.html", "index.html"], {
       base: "./",
     })
     .pipe(
@@ -223,16 +196,28 @@ function minifyHtml() {
     all utils function
 ================================================== */
 
-async function autoPreload() {
-  return preload();
-}
+// async function autoPreload() {
+//   return preload();
+// }
 
 function clean() {
   return deleteAsync(["build"]);
 }
 
+async function moveFile() {
+  const fileName = [
+    "dist/js/scripts.js",
+    "dist/js/library.js",
+    "data/**/*.vtt",
+  ];
+
+  await fileName.forEach((file) => {
+    gulp.src(file, { base: "./" }).pipe(gulp.dest("./dist"));
+  });
+}
+
 async function moveFolder() {
-  const folderName = ["assets/videos", "assets/pdf", "assets/gif"];
+  const folderName = ["js/pages", "assets/images", "assets/videos"];
   await folderName.forEach((folder) => {
     gulp
       .src("./" + folder + "/**/**/*", { base: "./" })

@@ -1,0 +1,73 @@
+$inputWidthD: rem(450);
+$inputWidthM: rem(760);
+$inputHeightD: rem(70);
+$inputHeightM: rem(160);
+
+#login-page {
+  @include fill-area;
+  .login-page {
+    @include fill-area;
+    @include flex-column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: rem(40) rem(100) rem(120) rem(100);
+
+    .hermes-bat-con {
+      background-color: $wheat;
+      width: 100%;
+      height: rem(650);
+      padding: rem(20);
+
+      .hermes-bat-box {
+        height: 100%;
+        img {
+          @include fill-area;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .content {
+      @include flex-column;
+      align-items: center;
+
+      .desc {
+        text-align: center;
+        font-size: rem(65);
+        text-transform: uppercase;
+        padding: rem(60) rem(0) rem(40) rem(0);
+        span {
+          color: $orange;
+        }
+      }
+
+      form {
+        @include flex-column;
+        gap: rem(30);
+        align-items: center;
+
+        input {
+          border: none;
+          background-color: $wheat;
+          font-size: rem(48);
+          font-family: $text-cambria;
+          font-weight: $light;
+          width: $inputWidthM;
+          max-width: $inputWidthM;
+          height: $inputHeightM;
+          max-height: $inputHeightM;
+          color: $orange;
+          text-align: center;
+
+          &::placeholder {
+            color: $orange;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
