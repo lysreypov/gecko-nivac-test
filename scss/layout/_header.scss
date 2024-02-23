@@ -1,15 +1,28 @@
 #header {
+  display: none;
   height: rem(180);
   width: 100%;
 
   .logo {
     @include fill-area;
-    padding-top: rem(40);
+    padding-top: rem(30);
     box-sizing: border-box;
 
     img {
       @include fill-area;
       object-fit: contain;
+    }
+  }
+
+  @include for-desktop {
+    position: absolute;
+    z-index: 2;
+    height: rem(160);
+
+    .logo {
+      img {
+        transform: translate(25%, 10%);
+      }
     }
   }
 }

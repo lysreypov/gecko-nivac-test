@@ -1,1 +1,1 @@
-var header;
+var header = $("#header");

@@ -20,9 +20,21 @@ function loadPage(pagePath, script, callback) {
           $("#content").fadeIn(animationDuration);
         });
 
+        inArrayNavMod();
         if (typeof callback === "function") {
           callback();
         }
       });
   });
+}
+
+function inArrayNavMod() {
+  var pageName = $(".page").attr("id");
+  var hideHeader = [""];
+
+  if (hideHeader.includes(pageName)) {
+    header.hide();
+  } else {
+    header.fadeIn(animationDuration);
+  }
 }

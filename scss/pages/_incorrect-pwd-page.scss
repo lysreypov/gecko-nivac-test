@@ -3,9 +3,9 @@ $inputWidthM: rem(760);
 $inputHeightD: rem(90);
 $inputHeightM: rem(160);
 
-#login-page {
+#incorrect-pwd-page {
   @include fill-area;
-  .login-page {
+  .incorrect-pwd-page {
     @include fill-area;
     @include flex-column;
     justify-content: space-between;
@@ -28,15 +28,23 @@ $inputHeightM: rem(160);
     }
 
     .content {
+      height: 50%;
       @include flex-column;
       align-items: center;
 
+      .title {
+        h1 {
+          font-size: rem(65);
+          text-transform: uppercase;
+          color: $orange;
+        }
+      }
+
       .desc {
-        padding: rem(60) rem(0) rem(40) rem(0);
+        padding-top: rem(100);
         p {
           text-align: center;
-          text-transform: uppercase;
-          font-size: rem(65);
+          font-size: rem(45);
         }
 
         span {
@@ -44,33 +52,8 @@ $inputHeightM: rem(160);
         }
       }
 
-      form {
-        @include flex-column;
-        gap: rem(30);
-        align-items: center;
-
-        input {
-          border: none;
-          border-radius: 0%;
-          background-color: $wheat;
-          font-size: rem(48);
-          font-family: $text-cambria;
-          font-weight: $light;
-          width: $inputWidthM;
-          max-width: $inputWidthM;
-          height: $inputHeightM;
-          max-height: $inputHeightM;
-          color: $orange;
-          text-align: center;
-
-          &::placeholder {
-            color: $orange;
-          }
-
-          &:focus {
-            outline: none;
-          }
-        }
+      .button {
+        padding-top: rem(200);
       }
     }
 
@@ -92,21 +75,21 @@ $inputHeightM: rem(160);
         padding-top: rem(60);
         padding-bottom: rem(100);
 
-        .desc {
-          p {
+        .title {
+          h1 {
             font-size: rem(45);
           }
         }
 
-        form {
-          gap: rem(40);
-          input {
-            width: $inputWidthD;
-            max-width: $inputWidthD;
-            height: $inputHeightD;
-            max-height: $inputHeightD;
-            font-size: rem(35);
+        .desc {
+          padding-top: rem(0);
+          p {
+            font-size: rem(38);
           }
+        }
+
+        .button {
+          padding-top: rem(50);
         }
       }
     }
