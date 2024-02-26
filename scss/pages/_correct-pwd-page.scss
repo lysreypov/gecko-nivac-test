@@ -1,0 +1,153 @@
+#correct-pwd-page {
+  @include fill-area;
+  .correct-pwd-page {
+    @include fill-area;
+    @include flex-column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: rem(40) rem(90) rem(120) rem(90);
+
+    .hermes-bat-con {
+      display: none;
+      background-color: $wheat;
+      width: 100%;
+      height: rem(650);
+      padding: rem(10);
+
+      .hermes-bat-box {
+        height: 100%;
+        img {
+          @include fill-area;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .content {
+      height: 100%;
+      @include flex-column;
+      align-items: center;
+      justify-content: space-around;
+
+      .info {
+        @include flex-column;
+        align-items: center;
+
+        .m-style {
+          display: none;
+        }
+
+        .title {
+          h1 {
+            font-size: rem(65);
+            text-transform: uppercase;
+            color: $orange;
+          }
+        }
+
+        .tip1,
+        .tip2 {
+          @include flex-column;
+          align-items: center;
+          gap: rem(80);
+          padding: rem(80) rem(100);
+          p {
+            text-align: center;
+            font-size: rem(45);
+          }
+
+          .drag-icon {
+            height: rem(250);
+            width: rem(250);
+
+            img {
+              @include fill-area;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .warning {
+          p {
+            font-size: rem(45);
+            color: $orange;
+          }
+        }
+      }
+    }
+
+    @include for-desktop {
+      @include flex-row;
+      gap: rem(20);
+      padding: rem(20);
+
+      .hermes-bat-con {
+        display: block;
+        width: 50%;
+        height: 100%;
+      }
+
+      .content {
+        width: 50%;
+        height: 100%;
+        justify-content: center;
+        gap: rem(100);
+        padding-top: rem(60);
+        padding-bottom: rem(100);
+
+        .info {
+          .m-style {
+            display: block;
+          }
+
+          .title {
+            padding-bottom: rem(60);
+            h1 {
+              font-size: rem(45);
+            }
+          }
+
+          .tip1,
+          .tip2 {
+            gap: rem(10);
+            padding: rem(0) rem(0) rem(0) rem(0);
+
+            p {
+              font-size: rem(35);
+            }
+
+            .drag-icon {
+              img {
+                @include fill-area;
+                object-fit: contain;
+              }
+            }
+          }
+
+          .tip1 {
+            .drag-icon {
+              height: rem(200);
+              width: rem(200);
+            }
+          }
+
+          .tip2 {
+            p {
+              padding-bottom: rem(20);
+            }
+            .drag-icon {
+              height: rem(120);
+              width: rem(120);
+            }
+          }
+          .warning {
+            padding-top: rem(40);
+            p {
+              font-size: rem(35);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ function goto(page) {
 }
 
 function loadPage(pagePath, script, callback) {
+  header.fadeOut(animationDuration);
   $("#content").fadeOut(animationDuration, function () {
     $(this)
       .empty()
@@ -30,7 +31,7 @@ function loadPage(pagePath, script, callback) {
 
 function inArrayNavMod() {
   var pageName = $(".page").attr("id");
-  var hideHeader = [""];
+  var hideHeader = ["correct-pwd-page", "game-page"];
 
   if (hideHeader.includes(pageName)) {
     header.hide();

@@ -1,0 +1,49 @@
+#game-page {
+  @include fill-area;
+  .game-page {
+    @include fill-area;
+    @include flex-column;
+
+    .bg-top {
+      flex: 1.5;
+      background-color: $white;
+    }
+    .bg-bottom {
+      flex: 1;
+      background-color: $wheat;
+    }
+
+    .content {
+      .timer {
+        position: absolute;
+        top: rem(40);
+        left: rem(40);
+        width: rem(230);
+        height: rem(230);
+        border: rem(7) solid $orange;
+        border-radius: 50%;
+        @include flex-column;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          font-size: rem(100);
+          color: $orange;
+          font-family: $text-cambria;
+          font-weight: $light;
+        }
+
+        small {
+          font-size: rem(28);
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    @include for-desktop {
+      .bg-top {
+        flex: 2;
+      }
+    }
+  }
+}
