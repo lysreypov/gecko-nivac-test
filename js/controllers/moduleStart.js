@@ -11,6 +11,6 @@ var moduleStart = {
 
   // Call first page
   setFirstPage: function () {
-    _goto("login-page");
+    _goto("game-page");
   },
 };

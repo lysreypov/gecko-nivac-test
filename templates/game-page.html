@@ -3,9 +3,56 @@
     <div class="bg-top"></div>
     <div class="bg-bottom"></div>
     <div class="content">
-      <div class="timer">
-        <span id="timer">24</span>
-        <small>Seconds</small>
+      <div class="circular-bar">
+        <div class="timer">
+          <span id="timer"></span>
+          <small>Seconds</small>
+        </div>
+      </div>
+      <div id="labyrinth-board" class="labyrinth-board">
+        <canvas id="labyrinth-canvas" width="1100" height="1100"> </canvas>
+        <div class="items">
+          <span class="depart">Departure</span>
+          <span class="arrive">Arrival</span>
+          <div id="hermes-coin" class="hermes-coin">
+            <!-- <img
+              src="assets/images/general/hermes-logo.png"
+              alt="Hermes Logo"
+            /> -->
+          </div>
+          <div class="goal">
+            <img src="assets/images/pages/game-page/keys.png" alt="Keys" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="time-up">
+        <div class="content">
+          <div class="info">
+            <h1 class="title">Too Bad...</h1>
+            <p class="desc">
+              Try again to find the keys to the Faubourg! A surprise awaits you.
+            </p>
+          </div>
+          <button class="btn playagain-btn" type="button">Play Again</button>
+        </div>
+      </div>
+      <div class="arrived">
+        <div class="content">
+          <div class="info">
+            <h1 class="title">Well Done!</h1>
+            <p class="desc">
+              You succeeded in finding the keys to 24 Faubourg. The doors are
+              opening... To the surprises we have for you at the International
+              Training Seminar!
+            </p>
+          </div>
+          <button class="btn playagain-btn" type="button">
+            Discover the program
+          </button>
+        </div>
       </div>
     </div>
   </div>

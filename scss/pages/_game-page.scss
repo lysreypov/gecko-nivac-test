@@ -5,7 +5,7 @@
     @include flex-column;
 
     .bg-top {
-      flex: 1.5;
+      flex: 1.2;
       background-color: $white;
     }
     .bg-bottom {
@@ -14,35 +14,268 @@
     }
 
     .content {
-      .timer {
+      .circular-bar {
         position: absolute;
-        top: rem(40);
-        left: rem(40);
-        width: rem(230);
-        height: rem(230);
-        border: rem(7) solid $orange;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -5%);
+        width: rem(300);
+        height: rem(300);
+        background: conic-gradient($white 0deg, $orange 0deg);
         border-radius: 50%;
         @include flex-column;
         align-items: center;
         justify-content: center;
 
-        span {
-          font-size: rem(100);
-          color: $orange;
-          font-family: $text-cambria;
-          font-weight: $light;
+        .timer {
+          position: absolute;
+          z-index: 10;
+          @include flex-column;
+          align-items: center;
+          justify-content: center;
+          margin-top: rem(-20);
+
+          span {
+            font-size: rem(140);
+            color: $orange;
+            font-family: $text-cambria;
+            font-weight: $light;
+          }
+
+          small {
+            font-size: rem(32);
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .circular-bar::before {
+        content: "";
+        position: absolute;
+        width: rem(285);
+        height: rem(285);
+        border-radius: 50%;
+        border: 2px solid $orange;
+      }
+
+      .circular-bar::after {
+        content: "";
+        position: absolute;
+        width: rem(278);
+        height: rem(278);
+        border-radius: 50%;
+        background-color: $white;
+      }
+
+      .labyrinth-board {
+        position: absolute;
+        z-index: 2;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: rem(900);
+        height: rem(900);
+
+        #labyrinth-canvas {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: rem(900);
+          height: rem(750);
         }
 
-        small {
-          font-size: rem(28);
-          text-transform: uppercase;
+        img {
+          @include fill-area;
+          object-fit: contain;
         }
+      }
+
+      .items {
+        .depart,
+        .arrive {
+          position: absolute;
+          z-index: 4;
+          color: $orange;
+          text-transform: uppercase;
+          font-size: rem(38);
+        }
+
+        .depart {
+          top: 32%;
+          left: -2%;
+        }
+
+        .arrive {
+          top: 10%;
+          right: 14%;
+        }
+
+        .hermes-coin,
+        .goal {
+          position: absolute;
+          z-index: 4;
+
+          img {
+            @include fill-area;
+            object-fit: contain;
+          }
+        }
+
+        .hermes-coin {
+          z-index: 6;
+          top: 17%;
+          left: 8%;
+          width: rem(50);
+          height: rem(50);
+          cursor: pointer;
+        }
+
+        .goal {
+          top: 20%;
+          right: 17%;
+          width: rem(120);
+          height: rem(120);
+        }
+      }
+    }
+
+    .result {
+      position: absolute;
+      z-index: 12;
+      bottom: 0;
+      background-color: $wheat;
+      width: 100%;
+      height: 45%;
+      padding-bottom: rem(100);
+      box-sizing: border-box;
+      display: none;
+
+      .time-up,
+      .arrived {
+        @include fill-area;
+        display: none;
+        .content {
+          @include flex-column;
+          @include fill-area;
+          justify-content: space-around;
+          align-items: center;
+
+          .info {
+            @include flex-column;
+            align-items: center;
+
+            h1 {
+              padding-bottom: rem(60);
+              text-transform: uppercase;
+              color: $orange;
+              font-size: rem(65);
+            }
+
+            p {
+              font-size: rem(45);
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      .time-up {
+        // display: none;
+        padding: rem(0) rem(100);
+      }
+
+      .arrived {
+        padding: rem(0) rem(50);
       }
     }
 
     @include for-desktop {
       .bg-top {
-        flex: 2;
+        flex: 1.5;
+      }
+
+      .content {
+        .circular-bar {
+          left: 9%;
+          width: rem(230);
+          height: rem(230);
+
+          .timer {
+            span {
+              font-size: rem(100);
+            }
+
+            small {
+              font-size: rem(28);
+            }
+          }
+        }
+
+        .circular-bar::before {
+          width: rem(220);
+          height: rem(220);
+        }
+
+        .circular-bar::after {
+          width: rem(215);
+          height: rem(215);
+        }
+
+        .labyrinth-board {
+          width: rem(1000);
+          height: rem(1000);
+
+          #labyrinth-canvas {
+            width: rem(1000);
+            height: rem(830);
+          }
+
+          .items {
+            .depart,
+            .arrive {
+              font-size: rem(28);
+            }
+
+            .depart {
+              left: 0;
+            }
+
+            .arrive {
+              top: 12%;
+              right: 16%;
+            }
+
+            .hermes-coin {
+              top: 17%;
+              left: 6%;
+              width: rem(60);
+              height: rem(60);
+            }
+          }
+        }
+      }
+
+      .result {
+        height: 40%;
+        padding-bottom: rem(50);
+
+        .time-up,
+        .arrived {
+          .content {
+            .info {
+              h1 {
+                font-size: rem(45);
+                padding-bottom: rem(30);
+              }
+              p {
+                font-size: rem(32);
+                padding: rem(0) rem(200);
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -10,7 +10,7 @@ function animationHandle() {
 }
 
 function gameHandle() {
-  $(".ok-btn").on("click", function () {
+  $(".ok-btn").one("click", function () {
     _goto("login-page");
   });
 }

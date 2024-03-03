@@ -120,17 +120,15 @@ function minifyDevScss() {
 
 // FIXME: need improvement,
 function minifyProdScss() {
-  return (
-    gulp
-      .src("scss/*.scss")
-      .pipe(wait(500))
-      .pipe(sass().on("error", throwError))
-      .pipe(sass())
-      .pipe(autoprefixer())
-      .pipe(cssnano())
-      .pipe(wait(500))
-      .pipe(gulp.dest("dist/css"))
-  );
+  return gulp
+    .src("scss/*.scss")
+    .pipe(wait(500))
+    .pipe(sass().on("error", throwError))
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(cssnano())
+    .pipe(wait(500))
+    .pipe(gulp.dest("dist/css"));
 }
 
 function minifyController() {
@@ -159,6 +157,8 @@ function minifyLibrary() {
       "js/libs/pdf-lib.min.js.map",
       "js/libs/download.min.js",
       "js/libs/fontkit.umd.min.js",
+      "js/libs/jcanvas.min.js",
+      "js/libs/swiper.min.js",
     ])
     .pipe(
       babel({

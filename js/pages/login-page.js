@@ -18,7 +18,7 @@ function gameHandle() {
       if (password.length > 3) {
         $(".login-btn").removeClass("locked").pulse();
 
-        $(".login-btn").on("click", function () {
+        $(".login-btn").one("click", function () {
           if (password === "1924") {
             _goto("correct-pwd-page");
           } else {
