@@ -1,6 +1,13 @@
-var player = $("#hermes-coin");
 var canvas = $("#labyrinth-canvas")[0];
 var ctx = canvas.getContext("2d");
+
+var playerImage = new Image();
+playerImage.src = "assets/images/pages/game-page/player.png";
+
+var goalImage = new Image();
+goalImage.src = "assets/images/pages/game-page/keys.png";
+
+var countDownTime;
 
 $(function () {
   animationHandle();
@@ -17,7 +24,7 @@ function gameHandle() {
   $("#timer").html(totalTime);
   var currentTime = totalTime;
 
-  var countDownTime = setInterval(function () {
+  countDownTime = setInterval(function () {
     currentTime--;
     $("#timer").html(currentTime);
     let remainTime = totalTime - currentTime;
@@ -28,8 +35,10 @@ function gameHandle() {
     );
 
     if (currentTime <= 0) {
-      // $(".result").fadeIn(animationDuration);
-      // $(".time-up").fadeIn(animationDuration);
+      offKey();
+      offSwipe();
+      $(".result").fadeIn(animationDuration);
+      $(".time-up").fadeIn(animationDuration);
 
       let playAgainBtn = $(".playagain-btn");
       setTimeout(() => {
@@ -45,7 +54,6 @@ function gameHandle() {
 
 function makeLabyrinth() {
   drawLabyrinth();
-  requestAnimationFrame(gameLoop);
 }
 
 function drawLabyrinth() {
@@ -61,8 +69,8 @@ function drawLabyrinth() {
     width: canvas.width,
     height: canvas.height,
     load: function () {
-      console.log("Image loaded successfully");
       defineWallsAndPathsCoor(ctx, canvas, "#ffffff");
+      drawGoal(ctx);
       drawPlayer(ctx);
     },
   });
@@ -72,59 +80,70 @@ var coordinates = {
   walls: [],
   paths: [],
 };
+var wallsAndPathsDefined = false;
 
 function defineWallsAndPathsCoor(ctx, canvas, color) {
-  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  var pixels = imageData.data;
+  if (!wallsAndPathsDefined) {
+    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var pixels = imageData.data;
 
-  for (var i = 0; i < pixels.length; i += 4) {
-    var red = pixels[i];
-    var green = pixels[i + 1];
-    var blue = pixels[i + 2];
+    for (var i = 0; i < pixels.length; i += 4) {
+      var red = pixels[i];
+      var green = pixels[i + 1];
+      var blue = pixels[i + 2];
 
-    // Convert RGB color components to hexadecimal
-    var hexColor = rgbToHex(red, green, blue);
-    if (hexColor !== color) {
-      // Calculate the coordinates of the pixel
-      var x = (i / 4) % canvas.width;
-      var y = Math.floor(i / 4 / canvas.width);
+      // Convert RGB color components to hexadecimal
+      var hexColor = rgbToHex(red, green, blue);
+      if (hexColor !== color) {
+        // Calculate the coordinates of the pixel
+        var x = (i / 4) % canvas.width;
+        var y = Math.floor(i / 4 / canvas.width);
 
-      coordinates.walls.push({ x: x, y: y });
-      // Draw wall at the coordinates
-      // drawWall(x, y);
-    } else {
-      var x = (i / 4) % canvas.width;
-      var y = Math.floor(i / 4 / canvas.width);
+        coordinates.walls.push({ x: x, y: y });
+      } else {
+        var x = (i / 4) % canvas.width;
+        var y = Math.floor(i / 4 / canvas.width);
 
-      coordinates.paths.push({ x: x, y: y });
-      // drawPath(x, y);
+        coordinates.paths.push({ x: x, y: y });
+      }
     }
+
+    // Set the flag to indicate that walls and paths are defined
+    wallsAndPathsDefined = true;
   }
 }
 
-// Define player properties
+// Define player and goal properties
 var player = {
   x: 80,
   y: 110,
-  width: 60,
-  height: 68,
+  width: 58,
+  height: 62,
+  speed: 15,
+};
+
+var goal = {
+  x: 780,
+  y: 170,
+  width: 120,
+  height: 190,
 };
 
 function drawPlayer(ctx) {
-  var playerImage = new Image();
-  playerImage.src = "assets/images/general/hermes-logo.png";
-
-  ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
+  if (playerImage.complete) {
+    ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
+  } else {
+    console.log("Player image is still loading...");
+  }
 }
 
-function drawWall(x, y) {
-  ctx.fillStyle = "orange";
-  ctx.fillRect(x, y, 1, 1);
-}
-
-function drawPath(x, y) {
-  ctx.fillStyle = "blue";
-  ctx.fillRect(x, y, 1, 1);
+// Draw the goal on the canvas
+function drawGoal(ctx) {
+  if (goalImage.complete) {
+    ctx.drawImage(goalImage, goal.x, goal.y, goal.width, goal.height);
+  } else {
+    console.log("Goal image is still loading...");
+  }
 }
 
 function isWall(x, y, width, height) {
@@ -145,55 +164,168 @@ function isWall(x, y, width, height) {
   return false;
 }
 
-function movePlayer(dx, dy) {
-  var newX = player.x + dx;
-  var newY = player.y + dy;
-
+function checkWin() {
   if (
-    newX >= 0 &&
-    newX + player.width <= canvas.width &&
-    newY >= 0 &&
-    newY + player.height <= canvas.height
+    player.x < goal.x + goal.width &&
+    player.x + player.width > goal.x &&
+    player.y < goal.y + goal.height &&
+    player.y + player.height > goal.y
   ) {
-    if (!isWall(newX, newY, player.width, player.height)) {
-      console.log("coordinate", newX, newY);
-      player.x = newX;
-      player.y = newY;
+    return true;
+  } else {
+    return false;
+  }
+}
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawLabyrinth();
-      drawPlayer(ctx);
+var animationRequestId;
+var lastMoveTime = 0;
+$(document).ready(function () {
+  if ($.fn.swipe) {
+    $("#labyrinth-board").swipe({
+      swipeStatus: function (
+        event,
+        phase,
+        direction,
+        distance,
+        duration,
+        fingers
+      ) {
+        // Check if swipe is in progress
+        if (phase === "move") {
+          // Clear the movement interval if it's set
+          cancelAnimationFrame(animationRequestId);
 
-      console.log("Player moved successfully");
+          // Determine the movement direction
+          switch (direction) {
+            case "up":
+              moveContinuous(38);
+              break;
+            case "down":
+              moveContinuous(40);
+              break;
+            case "left":
+              moveContinuous(37);
+              break;
+            case "right":
+              moveContinuous(39);
+              break;
+          }
+        }
+        // Check if swipe is completed
+        else if (phase === "end") {
+          // Clear the movement interval when the swipe ends
+          cancelAnimationFrame(animationRequestId);
+        }
+      },
+      threshold: 0,
+    });
+  } else {
+    console.error("TouchSwipe library not properly loaded or initialized.");
+  }
+
+  $(this).on("keydown", function (e) {
+    switch (e.which) {
+      case 37:
+        console.log(e.which);
+        movePlayer(e.which);
+        break;
+      case 38:
+        console.log(e.which);
+        movePlayer(e.which);
+        break;
+      case 39:
+        console.log(e.which);
+        movePlayer(e.which);
+        break;
+      case 40:
+        console.log(e.which);
+        movePlayer(e.which);
+        break;
+      default:
+        break;
+    }
+  });
+});
+
+// Function to update player position
+function movePlayer(key) {
+  // Calculate the new position based on the keys pressed
+  var newX = player.x;
+  var newY = player.y;
+
+  if (key === 37) {
+    newX -= player.speed;
+  }
+  if (key === 38) {
+    newY -= player.speed;
+  }
+  if (key === 39) {
+    newX += player.speed;
+  }
+  if (key === 40) {
+    newY += player.speed;
+  }
+
+  // Check for collisions with walls
+  if (!isWall(newX, newY, player.width, player.height)) {
+    removePlayer(ctx);
+
+    player.x = newX;
+    player.y = newY;
+
+    drawLabyrinth();
+    drawPlayer(ctx);
+
+    if (checkWin()) {
+      console.log("You win!");
+      offKey();
+      offSwipe();
+      $(".result").fadeIn(animationDuration);
+      $(".arrived").fadeIn(animationDuration);
+      clearInterval(countDownTime);
+
+      let discoverBtn = $(".discover-btn");
+      setTimeout(() => {
+        discoverBtn.pulse();
+        discoverBtn.one("click", () => {
+          _goto("login-page");
+        });
+      }, 3000);
     }
   }
 }
 
-var keys = { 37: false, 38: false, 39: false, 40: false };
-$(document).keydown(function (e) {
-  if (keys[e.which] !== undefined) {
-    console.log("ok");
-    keys[e.which] = true;
-  }
-});
-
-$(document).keyup(function (e) {
-  if (keys[e.which] !== undefined) {
-    keys[e.which] = false;
-  }
-});
-
-function gameLoop() {
-  if (keys[37]) movePlayer(-10, 0); // Smaller increment for smoother movement
-  if (keys[38]) movePlayer(0, -10);
-  if (keys[39]) movePlayer(10, 0);
-  if (keys[40]) movePlayer(0, 10);
-
-  requestAnimationFrame(gameLoop);
+function removePlayer(ctx) {
+  ctx.clearRect(player.x, player.y, player.width, player.height);
 }
 
-// 1. movement logic
-// 2. collision detection
-// 3. win and lose game
-// 4. swiper animation
-// 5. path color
+function moveContinuous(key) {
+  cancelAnimationFrame(animationRequestId);
+
+  var currentTime = Date.now();
+  var timeElapsed = currentTime - lastMoveTime;
+  var movementDelay = 50; //milliseconds
+
+  if (timeElapsed >= movementDelay) {
+    lastMoveTime = currentTime;
+    movePlayer(key);
+  }
+
+  animationRequestId = requestAnimationFrame(function () {
+    moveContinuous(key);
+  });
+}
+
+function stopContinuousMovement() {
+  // Cancel the animation frame request
+  cancelAnimationFrame(animationRequestId);
+}
+
+function offSwipe() {
+  if ($.fn.swipe) {
+    // Remove the swipe event listener
+    $("#labyrinth-board").off("swipe");
+  } else {
+    console.error("TouchSwipe library not properly loaded or initialized.");
+  }
+}

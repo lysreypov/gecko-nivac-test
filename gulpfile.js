@@ -158,7 +158,7 @@ function minifyLibrary() {
       "js/libs/download.min.js",
       "js/libs/fontkit.umd.min.js",
       "js/libs/jcanvas.min.js",
-      "js/libs/swiper.min.js",
+      "js/libs/jquery.touchSwipe.min.js",
     ])
     .pipe(
       babel({
