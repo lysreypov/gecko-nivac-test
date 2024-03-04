@@ -8,16 +8,13 @@ var goalImage = new Image();
 goalImage.src = "assets/images/pages/game-page/keys.png";
 
 var countDownTime;
+var animationRequestId;
+var lastMoveTime = 0;
 
 $(function () {
-  animationHandle();
   gameHandle();
   makeLabyrinth();
 });
-
-function animationHandle() {
-  console.log("animation");
-}
 
 function gameHandle() {
   var totalTime = 24;
@@ -35,8 +32,10 @@ function gameHandle() {
     );
 
     if (currentTime <= 0) {
-      offKey();
-      offSwipe();
+      offKey($(this));
+      offSwipe($("#labyrinth-board"));
+      $("#labyrinth-canvas").css("cursor", "default");
+
       $(".result").fadeIn(animationDuration);
       $(".time-up").fadeIn(animationDuration);
 
@@ -50,6 +49,65 @@ function gameHandle() {
       clearInterval(countDownTime);
     }
   }, 1000);
+
+  // Swipe player
+  if ($.fn.swipe) {
+    $("#labyrinth-board").swipe({
+      swipeStatus: function (
+        event,
+        phase,
+        direction,
+        distance,
+        duration,
+        fingers
+      ) {
+        if (phase === "move") {
+          cancelAnimationFrame(animationRequestId);
+
+          // Determine the movement direction
+          switch (direction) {
+            case "up":
+              moveContinuous(38);
+              break;
+            case "down":
+              moveContinuous(40);
+              break;
+            case "left":
+              moveContinuous(37);
+              break;
+            case "right":
+              moveContinuous(39);
+              break;
+          }
+        }
+        // Check if swipe is completed
+        else if (phase === "end") {
+          cancelAnimationFrame(animationRequestId);
+        }
+      },
+      threshold: 0,
+    });
+  }
+
+  // key arrow event
+  $(this).on("keydown", function (e) {
+    switch (e.which) {
+      case 37:
+        movePlayer(e.which);
+        break;
+      case 38:
+        movePlayer(e.which);
+        break;
+      case 39:
+        movePlayer(e.which);
+        break;
+      case 40:
+        movePlayer(e.which);
+        break;
+      default:
+        break;
+    }
+  });
 }
 
 function makeLabyrinth() {
@@ -107,8 +165,6 @@ function defineWallsAndPathsCoor(ctx, canvas, color) {
         coordinates.paths.push({ x: x, y: y });
       }
     }
-
-    // Set the flag to indicate that walls and paths are defined
     wallsAndPathsDefined = true;
   }
 }
@@ -177,77 +233,10 @@ function checkWin() {
   }
 }
 
-var animationRequestId;
-var lastMoveTime = 0;
-$(document).ready(function () {
-  if ($.fn.swipe) {
-    $("#labyrinth-board").swipe({
-      swipeStatus: function (
-        event,
-        phase,
-        direction,
-        distance,
-        duration,
-        fingers
-      ) {
-        // Check if swipe is in progress
-        if (phase === "move") {
-          // Clear the movement interval if it's set
-          cancelAnimationFrame(animationRequestId);
+function removePlayer(ctx) {
+  ctx.clearRect(player.x, player.y, player.width, player.height);
+}
 
-          // Determine the movement direction
-          switch (direction) {
-            case "up":
-              moveContinuous(38);
-              break;
-            case "down":
-              moveContinuous(40);
-              break;
-            case "left":
-              moveContinuous(37);
-              break;
-            case "right":
-              moveContinuous(39);
-              break;
-          }
-        }
-        // Check if swipe is completed
-        else if (phase === "end") {
-          // Clear the movement interval when the swipe ends
-          cancelAnimationFrame(animationRequestId);
-        }
-      },
-      threshold: 0,
-    });
-  } else {
-    console.error("TouchSwipe library not properly loaded or initialized.");
-  }
-
-  $(this).on("keydown", function (e) {
-    switch (e.which) {
-      case 37:
-        console.log(e.which);
-        movePlayer(e.which);
-        break;
-      case 38:
-        console.log(e.which);
-        movePlayer(e.which);
-        break;
-      case 39:
-        console.log(e.which);
-        movePlayer(e.which);
-        break;
-      case 40:
-        console.log(e.which);
-        movePlayer(e.which);
-        break;
-      default:
-        break;
-    }
-  });
-});
-
-// Function to update player position
 function movePlayer(key) {
   // Calculate the new position based on the keys pressed
   var newX = player.x;
@@ -277,9 +266,10 @@ function movePlayer(key) {
     drawPlayer(ctx);
 
     if (checkWin()) {
-      console.log("You win!");
-      offKey();
-      offSwipe();
+      offKey($(this));
+      offSwipe($("#labyrinth-board"));
+      $("#labyrinth-canvas").css("cursor", "default");
+
       $(".result").fadeIn(animationDuration);
       $(".arrived").fadeIn(animationDuration);
       clearInterval(countDownTime);
@@ -293,10 +283,6 @@ function movePlayer(key) {
       }, 3000);
     }
   }
-}
-
-function removePlayer(ctx) {
-  ctx.clearRect(player.x, player.y, player.width, player.height);
 }
 
 function moveContinuous(key) {
@@ -314,18 +300,4 @@ function moveContinuous(key) {
   animationRequestId = requestAnimationFrame(function () {
     moveContinuous(key);
   });
-}
-
-function stopContinuousMovement() {
-  // Cancel the animation frame request
-  cancelAnimationFrame(animationRequestId);
-}
-
-function offSwipe() {
-  if ($.fn.swipe) {
-    // Remove the swipe event listener
-    $("#labyrinth-board").off("swipe");
-  } else {
-    console.error("TouchSwipe library not properly loaded or initialized.");
-  }
 }

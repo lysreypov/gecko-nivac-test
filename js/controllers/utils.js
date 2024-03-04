@@ -6,6 +6,12 @@ function rgbToHex(r, g, b) {
   return "#" + hexR + hexG + hexB; // Concatenate the components with a '#' symbol
 }
 
-function offKey() {
-  $(document).off("keydown");
+function offKey(elem) {
+  elem.off("keydown");
+}
+
+function offSwipe(elem) {
+  if ($.fn.swipe) {
+    elem.swipe("destroy");
+  }
 }
