@@ -34,16 +34,18 @@ function gameHandle() {
     if (currentTime <= 0) {
       offKey($(this));
       offSwipe($("#labyrinth-board"));
-      $("#labyrinth-canvas").css("cursor", "default");
 
       $(".result").fadeIn(animationDuration);
       $(".time-up").fadeIn(animationDuration);
+      $("#labyrinth-canvas").css("cursor", "default");
 
       let playAgainBtn = $(".playagain-btn");
       setTimeout(() => {
         playAgainBtn.pulse();
         playAgainBtn.one("click", () => {
           _goto("game-page");
+          $(".result").fadeOut(animationDuration);
+          $(".time-up").fadeOut(animationDuration);
         });
       }, 3000);
       clearInterval(countDownTime);
@@ -268,17 +270,20 @@ function movePlayer(key) {
     if (checkWin()) {
       offKey($(this));
       offSwipe($("#labyrinth-board"));
-      $("#labyrinth-canvas").css("cursor", "default");
 
       $(".result").fadeIn(animationDuration);
       $(".arrived").fadeIn(animationDuration);
+      $("#labyrinth-canvas").css("cursor", "default");
       clearInterval(countDownTime);
 
       let discoverBtn = $(".discover-btn");
+
       setTimeout(() => {
         discoverBtn.pulse();
         discoverBtn.one("click", () => {
           _goto("login-page");
+          $(".result").fadeOut(animationDuration);
+          $(".arrived").fadeOut(animationDuration);
         });
       }, 3000);
     }

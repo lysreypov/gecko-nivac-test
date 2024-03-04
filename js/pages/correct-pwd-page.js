@@ -14,3 +14,5 @@ function gameHandle() {
     _goto("game-page");
   });
 }
+
+preloadImages("game-page");

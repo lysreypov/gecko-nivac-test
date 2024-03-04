@@ -6,6 +6,15 @@ function rgbToHex(r, g, b) {
   return "#" + hexR + hexG + hexB; // Concatenate the components with a '#' symbol
 }
 
+//-----------------------------------------------
+//      Preload Imgage
+//-----------------------------------------------
+$.preloadImages = function () {
+  for (var i = 0; i < arguments.length; i++) {
+    $("<img />").attr("src", arguments[i]);
+  }
+};
+
 function offKey(elem) {
   elem.off("keydown");
 }
