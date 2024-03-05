@@ -73,23 +73,23 @@ function gameHandle() {
           // Determine the movement direction
           switch (direction) {
             case "up":
-              moveContinuous(38);
+              movePlayer(38);
               break;
             case "down":
-              moveContinuous(40);
+              movePlayer(40);
               break;
             case "left":
-              moveContinuous(37);
+              movePlayer(37);
               break;
             case "right":
-              moveContinuous(39);
+              movePlayer(39);
               break;
           }
         }
         // Check if swipe is completed
-        else if (phase === "end") {
-          cancelAnimationFrame(animationRequestId);
-        }
+        // else if (phase === "end") {
+        //   cancelAnimationFrame(animationRequestId);
+        // }
       },
       threshold: 0,
     });
@@ -294,19 +294,19 @@ function movePlayer(key) {
   }
 }
 
-function moveContinuous(key) {
-  cancelAnimationFrame(animationRequestId);
+// function moveContinuous(key) {
+//   cancelAnimationFrame(animationRequestId);
 
-  var currentTime = Date.now();
-  var timeElapsed = currentTime - lastMoveTime;
-  var movementDelay = 50; //milliseconds
+//   var currentTime = Date.now();
+//   var timeElapsed = currentTime - lastMoveTime;
+//   var movementDelay = 50; //milliseconds
 
-  if (timeElapsed >= movementDelay) {
-    lastMoveTime = currentTime;
-    movePlayer(key);
-  }
+//   if (timeElapsed >= movementDelay) {
+//     lastMoveTime = currentTime;
+//     movePlayer(key);
+//   }
 
-  animationRequestId = requestAnimationFrame(function () {
-    moveContinuous(key);
-  });
-}
+//   animationRequestId = requestAnimationFrame(function () {
+//     moveContinuous(key);
+//   });
+// }
