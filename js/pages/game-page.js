@@ -1,20 +1,24 @@
 var canvas = $("#labyrinth-canvas")[0];
 var ctx = canvas.getContext("2d");
 
-var playerImage = new Image();
-playerImage.src = "assets/images/pages/game-page/player.png";
-
-var goalImage = new Image();
-goalImage.src = "assets/images/pages/game-page/keys.png";
-
+var playerImage, goalImage;
 var countDownTime;
 var animationRequestId;
 var lastMoveTime = 0;
 
 $(function () {
   gameHandle();
+  loadImages();
   makeLabyrinth();
 });
+
+function loadImages() {
+  playerImage = new Image();
+  playerImage.src = "assets/images/pages/game-page/player.png";
+
+  goalImage = new Image();
+  goalImage.src = "assets/images/pages/game-page/keys.png";
+}
 
 function gameHandle() {
   var totalTime = 24;
@@ -32,6 +36,7 @@ function gameHandle() {
     );
 
     if (currentTime <= 0) {
+      clearInterval(countDownTime);
       offKey($(this));
       offSwipe($("#labyrinth-board"));
 
@@ -48,7 +53,6 @@ function gameHandle() {
           $(".time-up").fadeOut(animationDuration);
         });
       }, 3000);
-      clearInterval(countDownTime);
     }
   }, 1000);
 
@@ -268,13 +272,13 @@ function movePlayer(key) {
     drawPlayer(ctx);
 
     if (checkWin()) {
+      clearInterval(countDownTime);
       offKey($(this));
       offSwipe($("#labyrinth-board"));
 
       $(".result").fadeIn(animationDuration);
       $(".arrived").fadeIn(animationDuration);
       $("#labyrinth-canvas").css("cursor", "default");
-      clearInterval(countDownTime);
 
       let discoverBtn = $(".discover-btn");
 

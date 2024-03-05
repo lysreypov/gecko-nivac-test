@@ -9,7 +9,7 @@ function animationHandle() {
   }, 200);
 }
 
-var password = "";
+
 function gameHandle() {
   $("#password").focus(function () {
     $(this).clearAnim();
