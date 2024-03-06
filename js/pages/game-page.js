@@ -36,8 +36,7 @@ function gameHandle() {
     if (currentTime <= 0) {
       console.log("true");
       clearInterval(countDownTime);
-      offKey();
-      offSwipe($("#labyrinth-board"));
+      disableEvent();
 
       $(".result").fadeIn(animationDuration);
       $(".time-up").fadeIn(animationDuration);
@@ -56,8 +55,6 @@ function gameHandle() {
       if (checkWin()) {
         console.log("reach");
         clearInterval(countDownTime);
-        offKey();
-        offSwipe($("#labyrinth-board"));
 
         $(".result").fadeIn(animationDuration);
         $(".arrived").fadeIn(animationDuration);
@@ -129,6 +126,11 @@ function gameHandle() {
         break;
     }
   });
+}
+
+function disableEvent() {
+  offKey();
+  offSwipe($("#labyrinth-board"));
 }
 
 function makeLabyrinth() {
