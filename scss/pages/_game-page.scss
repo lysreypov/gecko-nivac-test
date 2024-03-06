@@ -186,10 +186,14 @@
       .time-up {
         // display: none;
         padding: rem(0) rem(100);
+        margin-bottom: rem(50);
       }
 
       .arrived {
         padding: rem(0) rem(50);
+        .m-style {
+          display: none;
+        }
       }
     }
 
@@ -273,9 +277,13 @@
               }
               p {
                 font-size: rem(32);
-                padding: rem(0) rem(200);
+                padding: rem(0) rem(100);
               }
             }
+          }
+
+          .m-style {
+            display: block;
           }
         }
       }

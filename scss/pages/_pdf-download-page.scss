@@ -1,0 +1,57 @@
+#pdf-download-page {
+  @include fill-area;
+
+  #pdf {
+    @include fill-area;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 18;
+    overflow-y: auto;
+
+    .popup__close {
+      width: rem(30);
+      height: auto;
+      cursor: pointer;
+      position: absolute;
+      top: rem(20);
+      right: rem(20);
+    }
+
+    .pdf__wrapper {
+      @include fill-area;
+      padding: 0;
+
+      .pdf-viewer {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: scroll !important;
+        @include fill-area;
+
+        iframe {
+          @include fill-area;
+        }
+      }
+    }
+
+    .x-icon {
+      cursor: pointer;
+      position: absolute;
+      top: rem(120);
+      right: rem(20);
+      width: rem(80);
+      height: rem(80);
+
+      img {
+        @include fill-area;
+      }
+
+      @include for-desktop {
+        top: rem(80);
+        right: rem(80);
+        width: rem(60);
+        height: rem(60);
+      }
+    }
+  }
+}

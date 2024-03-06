@@ -2,6 +2,12 @@ var canvas = $("#labyrinth-canvas")[0];
 var ctx = canvas.getContext("2d");
 
 var playerImage, goalImage;
+var coordinates = {
+  walls: [],
+  paths: [],
+};
+var playerPath = [];
+var wallsAndPathsDefined = false;
 
 $(function () {
   gameHandle();
@@ -18,6 +24,7 @@ function loadImages() {
 }
 
 function gameHandle() {
+  // Timer
   var totalTime = 24;
   $("#timer").html(totalTime);
   var currentTime = totalTime;
@@ -31,10 +38,8 @@ function gameHandle() {
       "background",
       `conic-gradient(#ffffff ${(remainTime / 24) * 360}deg, #e28b22 0deg)`
     );
-    console.log(currentTime);
 
     if (currentTime <= 0) {
-      console.log("true");
       clearInterval(countDownTime);
       disableEvent();
 
@@ -51,29 +56,32 @@ function gameHandle() {
           $(".time-up").fadeOut(animationDuration);
         });
       }, 3000);
-    } else {
-      if (checkWin()) {
-        console.log("reach");
-        clearInterval(countDownTime);
+    } else if (checkWin()) {
+      clearInterval(countDownTime);
+      disableEvent();
 
-        $(".result").fadeIn(animationDuration);
-        $(".arrived").fadeIn(animationDuration);
-        $("#labyrinth-canvas").css("cursor", "default");
+      $(".result").fadeIn(animationDuration);
+      $(".arrived").fadeIn(animationDuration);
+      $("#labyrinth-canvas").css("cursor", "default");
 
-        let discoverBtn = $(".discover-btn");
+      let discoverBtn = $(".discover-btn");
 
-        setTimeout(() => {
-          discoverBtn.pulse();
-          discoverBtn.one("click", () => {
-            _goto("dowload-pdf");
-            $(".result").fadeOut(animationDuration);
-            $(".arrived").fadeOut(animationDuration);
-          });
-        }, 3000);
-      }
+      setTimeout(() => {
+        discoverBtn.pulse();
+        discoverBtn.one("click", () => {
+          _goto("pdf-download-page");
+          $(".result").fadeOut(animationDuration);
+          $(".arrived").fadeOut(animationDuration);
+        });
+      }, 3000);
     }
   }, 1000);
 
+  swiperEventHandle();
+  keyEventHandle();
+}
+
+function swiperEventHandle() {
   // Swipe player
   if ($.fn.swipe) {
     $("#labyrinth-board").swipe({
@@ -89,16 +97,16 @@ function gameHandle() {
           // Determine the movement direction
           switch (direction) {
             case "up":
-              movePlayer(38, countDownTime);
+              movePlayer(38);
               break;
             case "down":
-              movePlayer(40, countDownTime);
+              movePlayer(40);
               break;
             case "left":
-              movePlayer(37, countDownTime);
+              movePlayer(37);
               break;
             case "right":
-              movePlayer(39, countDownTime);
+              movePlayer(39);
               break;
           }
         }
@@ -106,21 +114,24 @@ function gameHandle() {
       threshold: 0,
     });
   }
+}
 
+function keyEventHandle() {
   // key arrow event
   $(document).on("keydown", function (e) {
+    e.preventDefault();
     switch (e.which) {
       case 37:
-        movePlayer(e.which, countDownTime);
+        movePlayer(e.which);
         break;
       case 38:
-        movePlayer(e.which, countDownTime);
+        movePlayer(e.which);
         break;
       case 39:
-        movePlayer(e.which, countDownTime);
+        movePlayer(e.which);
         break;
       case 40:
-        movePlayer(e.which, countDownTime);
+        movePlayer(e.which);
         break;
       default:
         break;
@@ -157,12 +168,6 @@ function drawLabyrinth() {
   });
 }
 
-var coordinates = {
-  walls: [],
-  paths: [],
-};
-var wallsAndPathsDefined = false;
-
 function defineWallsAndPathsCoor(ctx, canvas, color) {
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var pixels = imageData.data;
@@ -197,7 +202,7 @@ var player = {
   y: 110,
   width: 58,
   height: 62,
-  speed: 15,
+  speed: 10,
 };
 
 var goal = {
@@ -259,10 +264,17 @@ function removePlayer(ctx) {
   ctx.clearRect(player.x, player.y, player.width, player.height);
 }
 
-function movePlayer(key, countDownTime) {
+function movePlayer(key) {
   // Calculate the new position based on the keys pressed
   var newX = player.x;
   var newY = player.y;
+
+  // Store the current position before updating
+  var currentPosition = {
+    x: player.x + player.width / 2,
+    y: player.y + player.height / 2,
+  };
+  playerPath.push(currentPosition);
 
   if (key === 37) {
     newX -= player.speed;
@@ -286,5 +298,20 @@ function movePlayer(key, countDownTime) {
 
     drawLabyrinth();
     drawPlayer(ctx);
+
+    drawPlayerPath(ctx);
   }
+}
+
+function drawPlayerPath(ctx) {
+  ctx.strokeStyle = "#e28b22";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+
+  for (var i = 1; i < playerPath.length; i++) {
+    ctx.moveTo(playerPath[i - 1].x, playerPath[i - 1].y);
+    ctx.lineTo(playerPath[i].x, playerPath[i].y);
+  }
+
+  ctx.stroke();
 }

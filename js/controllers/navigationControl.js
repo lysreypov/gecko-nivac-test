@@ -31,7 +31,7 @@ function loadPage(pagePath, script, callback) {
 
 function inArrayNavMod() {
   var pageName = $(".page").attr("id");
-  var hideHeader = ["correct-pwd-page", "game-page"];
+  var hideHeader = ["correct-pwd-page", "game-page", "pdf-download-page"];
 
   if (hideHeader.includes(pageName)) {
     header.hide();
