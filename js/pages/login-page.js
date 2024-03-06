@@ -1,3 +1,4 @@
+var loginBtn = $(".login-btn");
 $(function () {
   animationHandle();
   gameHandle();
@@ -6,9 +7,8 @@ $(function () {
 function animationHandle() {
   setTimeout(() => {
     $("#password").pulse();
-  }, 200);
+  }, 300);
 }
-
 
 function gameHandle() {
   $("#password").focus(function () {
@@ -16,16 +16,24 @@ function gameHandle() {
     $(this).on("input", function (e) {
       password = e.target.value;
       if (password.length > 3) {
-        $(".login-btn").removeClass("locked").pulse();
-
-        $(".login-btn").one("click", function () {
-          if (password === "1924") {
-            _goto("correct-pwd-page");
-          } else {
-            _goto("incorrect-pwd-page");
-          }
-        });
+        loginBtn.removeClass("locked").pulse();
       }
+
+      loginBtn.one("click", handleBtnClick);
+      $(this).on("keydown", function (e) {
+        if (e.which === 13) {
+          e.preventDefault();
+          handleBtnClick();
+        }
+      });
     });
   });
+}
+
+function handleBtnClick() {
+  if (password === "1924") {
+    _goto("correct-pwd-page");
+  } else {
+    _goto("incorrect-pwd-page");
+  }
 }

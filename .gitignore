@@ -22,6 +22,7 @@ node_modules/
 # Maven
 target/
 
+
 # JetBrains IDE
 .idea/
 

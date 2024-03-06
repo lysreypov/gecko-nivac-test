@@ -1,5 +1,18 @@
 @font-face {
   font-family: "Cambria";
+  src: url("../../assets/fonts/Cambria.eot");
+  src: url("../../assets/fonts/Cambria.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/Cambria.woff2") format("woff2"),
+    url("../../assets/fonts/Cambria.woff") format("woff"),
+    url("../../assets/fonts/Cambria.ttf") format("truetype"),
+    url("../../assets/fonts/Cambria.svg#Cambria") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cambria";
   src: url("../../assets/fonts/Cambria-Bold_1.eot");
   src: url("../../assets/fonts/Cambria-Bold_1.eot?#iefix")
       format("embedded-opentype"),

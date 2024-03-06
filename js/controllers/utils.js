@@ -15,8 +15,8 @@ $.preloadImages = function () {
   }
 };
 
-function offKey(elem) {
-  elem.off("keydown");
+function offKey() {
+  $(document).off("keydown");
 }
 
 function offSwipe(elem) {
