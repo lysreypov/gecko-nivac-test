@@ -39,7 +39,27 @@ function gameHandle() {
       `conic-gradient(#ffffff ${(remainTime / 24) * 360}deg, #e28b22 0deg)`
     );
 
-    if (currentTime <= 0) {
+    if (currentTime > 0) {
+      if (checkWin()) {
+        clearInterval(countDownTime);
+        disableEvent();
+
+        $(".result").fadeIn(animationDuration);
+        $(".arrived").fadeIn(animationDuration);
+        $("#labyrinth-canvas").css("cursor", "default");
+
+        let discoverBtn = $(".discover-btn");
+
+        setTimeout(() => {
+          discoverBtn.pulse();
+          discoverBtn.one("click", () => {
+            _goto("pdf-download-page");
+            $(".result").fadeOut(animationDuration);
+            $(".arrived").fadeOut(animationDuration);
+          });
+        }, 3000);
+      }
+    } else {
       clearInterval(countDownTime);
       disableEvent();
 
@@ -54,24 +74,6 @@ function gameHandle() {
           _goto("game-page");
           $(".result").fadeOut(animationDuration);
           $(".time-up").fadeOut(animationDuration);
-        });
-      }, 3000);
-    } else if (checkWin()) {
-      clearInterval(countDownTime);
-      disableEvent();
-
-      $(".result").fadeIn(animationDuration);
-      $(".arrived").fadeIn(animationDuration);
-      $("#labyrinth-canvas").css("cursor", "default");
-
-      let discoverBtn = $(".discover-btn");
-
-      setTimeout(() => {
-        discoverBtn.pulse();
-        discoverBtn.one("click", () => {
-          _goto("pdf-download-page");
-          $(".result").fadeOut(animationDuration);
-          $(".arrived").fadeOut(animationDuration);
         });
       }, 3000);
     }
@@ -297,9 +299,8 @@ function movePlayer(key) {
     player.y = newY;
 
     drawLabyrinth();
-    drawPlayer(ctx);
-
     drawPlayerPath(ctx);
+    drawPlayer(ctx);
   }
 }
 

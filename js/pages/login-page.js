@@ -16,9 +16,8 @@ function gameHandle() {
     $(this).clearAnim();
     $(this).on("input", function (e) {
       password = e.target.value;
-      if (password.length > 3) {
-        loginBtn.removeClass("locked").pulse();
-      }
+
+      loginBtn.removeClass("locked").pulse();
     });
   });
 
